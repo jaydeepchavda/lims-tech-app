@@ -1,0 +1,121 @@
+<div class="container-fluid py-4">
+    <h4 class="text-center text-primary mb-4 p-2 border-bottom fw-bold">Login Labels Process</h4>
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+
+            <div class="d-flex align-items-center justify-content-center mb-4">
+                <label class="form-label small me-2">ADD OrderID :</label>
+                <input type="text" class="form-control form-control-sm border-dark shadow-none" style="width: 160px;"
+                    [ngModel]="manualInput()" (ngModelChange)="manualInput.set($event)">
+                <button class="btn btn-orange btn-sm ms-1 fw-bold" (click)="addManual()">+</button>
+                <span class="text-danger fw-bold ms-2 small">OR</span>
+            </div>
+
+            <div class="d-flex align-items-start mb-2">
+                <label class="fw-bold small me-2 mt-2 text-end" style="width: 75px;">OrderID :</label>
+
+                <select size="4" name="" multiple="multiple" id="" ondblclick=""
+                    style="height:420px;width:250px;font-family: Verdana; font-size: 12px">
+                    <option value="R1481 - (02/25/2026)">R1481 - (02/25/2026)</option>
+                    <option value="R1480 - (02/25/2026)">R1480 - (02/25/2026)</option>
+                    <option value="R1479 - (02/25/2026)">R1479 - (02/25/2026)</option>
+                    <option value="R1478 - (02/25/2026)">R1478 - (02/25/2026)</option>
+                    <option value="R1477 - (02/25/2026)">R1477 - (02/25/2026)</option>
+                    <option value="R1476 - (02/25/2026)">R1476 - (02/25/2026)</option>
+                    <option value="R1475 - (02/25/2026)">R1475 - (02/25/2026)</option>
+                    <option value="R1474 - (02/25/2026)">R1474 - (02/25/2026)</option>
+                    <option value="R1473 - (02/25/2026)">R1473 - (02/25/2026)</option>
+                    <option value="R1472 - (02/25/2026)">R1472 - (02/25/2026)</option>
+                    <option value="R1471 - (02/24/2026)">R1471 - (02/24/2026)</option>
+                    <option value="R1470 - (02/24/2026)">R1470 - (02/24/2026)</option>
+                    <option value="R1469 - (02/24/2026)">R1469 - (02/24/2026)</option>
+                    <option value="R1468 - (02/24/2026)">R1468 - (02/24/2026)</option>
+                    <option value="R1467 - (02/24/2026)">R1467 - (02/24/2026)</option>
+                    <option value="R1466 - (02/24/2026)">R1466 - (02/24/2026)</option>
+                    <option value="R1465 - (02/24/2026)">R1465 - (02/24/2026)</option>
+                    <option value="R1464 - (02/24/2026)">R1464 - (02/24/2026)</option>
+                    <option value="R1463 - (02/20/2026)">R1463 - (02/20/2026)</option>
+                    <option value="R1462 - (02/20/2026)">R1462 - (02/20/2026)</option>
+                    <option value="R1461 - (02/20/2026)">R1461 - (02/20/2026)</option>
+                    <option value="R1460 - (02/20/2026)">R1460 - (02/20/2026)</option>
+                    <option value="R1459 - (02/20/2026)">R1459 - (02/20/2026)</option>
+                    <option value="R1458 - (02/20/2026)">R1458 - (02/20/2026)</option>
+                    <option value="R1457 - (02/20/2026)">R1457 - (02/20/2026)</option>
+                    <option value="R1456 - (02/20/2026)">R1456 - (02/20/2026)</option>
+                    <option value="R1455 - (02/20/2026)">R1455 - (02/20/2026)</option>
+                    <option value="R1454 - (02/20/2026)">R1454 - (02/20/2026)</option>
+                    <option value="R1453 - (02/20/2026)">R1453 - (02/20/2026)</option>
+                    <option value="R1452 - (02/20/2026)">R1452 - (02/20/2026)</option>
+                    <option value="R1451 - (02/20/2026)">R1451 - (02/20/2026)</option>
+                    <option value="R1450 - (02/20/2026)">R1450 - (02/20/2026)</option>
+                    <option value="R1449 - (02/20/2026)">R1449 - (02/20/2026)</option>
+                    <option value="R1448 - (02/20/2026)">R1448 - (02/20/2026)</option>
+                    <option value="R1447 - (02/20/2026)">R1447 - (02/20/2026)</option>
+                    <option value="R1446 - (02/20/2026)">R1446 - (02/20/2026)</option>
+                    <option value="R1445 - (02/20/2026)">R1445 - (02/20/2026)</option>
+                    <option value="R1444 - (02/20/2026)">R1444 - (02/20/2026)</option>
+                    <option value="R1443 - (02/20/2026)">R1443 - (02/20/2026)</option>
+                    <option value="R1442 - (02/20/2026)">R1442 - (02/20/2026)</option>
+                    <option value="R1441 - (02/20/2026)">R1441 - (02/20/2026)</option>
+                    <option value="R1440 - (02/20/2026)">R1440 - (02/20/2026)</option>
+                    <option value="R1439 - (02/20/2026)">R1439 - (02/20/2026)</option>
+                    <option value="R1438 - (02/19/2026)">R1438 - (02/19/2026)</option>
+                    <option value="R1437 - (02/19/2026)">R1437 - (02/19/2026)</option>
+                    <option value="R1436 - (02/19/2026)">R1436 - (02/19/2026)</option>
+                    <option value="R1435 - (02/19/2026)">R1435 - (02/19/2026)</option>
+                    <option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option>
+
+                </select>
+
+
+                <div class="d-flex flex-column mx-1 gap-1 mt-2">
+                    <input type="submit" name="InputOne" value="&gt;" class="btn btn-primary" >
+                    <input type="submit" name="InputOne" value="&gt;&gt;" class="btn btn-primary" >
+                    <input type="submit" name="InputOne" value="&lt;" class="btn btn-primary" >
+                    <input type="submit" name="InputOne" value="&lt;&lt;" class="btn btn-primary" >
+
+                    <!-- <button class="btn btn-orange btn-xs" (click)="moveAllRight()">&gt;&gt;</button>
+                    <button class="btn btn-orange btn-xs" (click)="moveLeft()">&lt;</button>
+                    <button class="btn btn-orange btn-xs" (click)="moveAllLeft()">&lt;&lt;</button> -->
+                </div>
+
+                <select size="4" name="" multiple="multiple" id="" ondblclick=""
+                    style="height:120px;width:250px;font-family: Verdana; font-size: 12px">
+                    <option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option>
+                    <option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option><option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option><option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option><option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option><option value="R1434 - (02/19/2026)">R1434 - (02/19/2026)</option>
+                    <option value="R1433 - (02/19/2026)">R1433 - (02/19/2026)</option>
+                    <option value="R1432 - (02/19/2026)">R1432 - (02/19/2026)</option>
+                    <option value="R1464-(02/24/2026)">R1464-(02/24/2026)</option>
+                </select>
+            </div>
+
+            <div class="text-center mb-4" style="margin-left: 85px;">
+                <button class="btn btn-orange btn-sm px-3 fw-bold shadow-sm">Get Sample</button>
+            </div>
+
+            <div class="text-center" style="margin-left: 85px;">
+                <button class="btn btn-orange btn-sm px-5 fw-bold shadow-sm">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</div>

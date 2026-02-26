@@ -1,0 +1,210 @@
+<div class="container-fluid py-3">
+
+    @if (!selectedOrderId) {
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <div class="main-order-content border rounded p-3 bg-light shadow-sm">
+                <div class="order-select-content d-flex align-items-center justify-content-center mb-3">
+                    <label class="small fw-semibold me-2">Order ID :</label>
+                    <div style="width: 200px;">
+                        <select class="form-select form-select-sm border-dark-subtle"
+                            (change)="onViewOrder($any($event.target).value)">
+                            <option value="">-- Select Order Id --</option>
+                            @for (item of projectIdList; track item) {
+                            <option [value]="item">{{ item }}</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center">
+                    <label class="small fw-semibold me-2">OR Enter SignOff OrderID :</label>
+                    <div class="me-2" style="width: 200px;">
+                        <input #manualId type="text" class="form-control form-control-sm border-dark-subtle"
+                            placeholder="Enter OrderID" (keyup.enter)="onViewOrder(manualId.value)" />
+                    </div>
+                    <button class="btn btn-sm btn-primary px-4" (click)="onViewOrder(manualId.value)">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    @else {
+    <div class="row">
+        <div class="col-12 text-center mb-2">
+            <div class="">
+                <h5 class="fw-bold mb-0">OrderID : {{ selectedOrderId }}</h5>
+                <div class="sampletype">
+                    <span class="badge bg-danger bg-opacity-25 text-dark small mx-2">Solid</span>
+                    <span class="badge bg-primary bg-opacity-25 text-dark small mx-2">Water</span>
+                    <span class="badge bg-success bg-opacity-25 text-dark small mx-2">Air</span>
+                    <span class="badge bg-dark bg-opacity-25 text-dark small mx-2">Other</span>
+                    <span class="badge bg-warning bg-opacity-25 text-dark small mx-2">AC</span>
+
+                </div>
+                <button class="btn btn-outline-secondary btn-sm my-3" (click)="resetView()">
+                    <i class="bi bi-arrow-left"></i> Change Order
+                </button>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="table-responsive border rounded shadow-sm">
+                <table class="table table-sm table-bordered mb-0 align-middle">
+                    <thead class="table-light text-center small">
+                        <tr>
+                            <th>Matrix</th>
+                            <th>SampleNumber</th>
+                            <th>Customer SampleNumber</th>
+                            <th>Collect Date</th>
+                            <th>Collect Time</th>
+                            <th>No. of Container</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody class="small">
+                        <tr>
+                            <td class="text-center">Water</td>
+                            <td class="text-center text-primary">
+                                <a [routerLink]="['/lims/echem/login/ViewUpdatePriority']"
+                                    [queryParams]="{ SampleNumber: selectedOrderId + '-01' }"
+                                    class="text-primary fw-bold text-decoration-underline clickable-link">
+                                    {{ selectedOrderId }}
+                                </a>
+                            </td>
+                            <td><input type="text"
+                                    class="form-control form-control-sm border-1 bg-transparent border-dark-subtle"
+                                    value="BP-VPB-185-TB-20260217"></td>
+                            <td><input type="text"
+                                    class="form-control form-control-sm border-1 bg-transparent border-dark-subtle"
+                                    value="02/12/2026"></td>
+                            <td><input type="text"
+                                    class="form-control form-control-sm border-1 bg-transparent border-dark-subtle"
+                                    value="09:00:00"></td>
+                            <td class="text-center"><input type="text"
+                                    class="form-control form-control-sm border-1 bg-transparent border-dark-subtle"
+                                    value="2"></td>
+                            <td><input type="text"
+                                    class="form-control form-control-sm border-1 bg-transparent border-dark-subtle">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+
+                            </td>
+                            <td colspan="4" class="bg-light bg-opacity-10 p-2">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-2 col-6">
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="anions3">
+                                                <label
+                                                    class="form-check-label  x-small fw-semibold bg-warning bg-opacity-50 px-1"
+                                                    for="anions3">Anions Group3</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="metals3">
+                                                <label class="form-check-label  ms-1 x-small text-primary"
+                                                    for="metals3">Metals Group3</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="dissolvedMetalsTal">
+                                                <label class="form-check-label  ms-1 x-small text-primary"
+                                                    for="dissolvedMetalsTal">DISSOLVED METALS-TAL</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="svoc1">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="svoc1">SVOC-SIMGroup1</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-6">
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="metalsTal">
+                                                <label
+                                                    class="form-check-label ms-1 x-small fw-semibold bg-warning bg-opacity-50 px-1"
+                                                    for="metalsTal">METALS-TAL</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="pcb">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="pcb">PCB</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="tds">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="tds">TDS</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-6">
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="alkalinity">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="alkalinity">Alkalinity</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="pesticide">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="pesticide">Pesticide-TCL</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="tss">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="tss">TSS</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-6">
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="anions4">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="anions4">Anions Group4</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="ph">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="ph">pH</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="voc">
+                                                <label class="form-check-label ms-1 x-small text-primary "
+                                                    for="voc">VOC-TCLVOA-10</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-6">
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="anions5">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="anions5">Anions Group5</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="phosphorus">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="phosphorus">Phosphorus-Total</label>
+                                            </div>
+                                            <div class="form-check d-flex align-items-center mb-1">
+                                                <input class="form-check-input border-dark-subtle" type="checkbox" id="vocms1">
+                                                <label class="form-check-label ms-1 x-small text-primary"
+                                                    for="vocms1">VOCMS Group1</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="update-button text-center p-2">
+            <button class="btn btn-primary" (click)="onSubmitAllData()">Update</button>
+        </div>
+    </div>
+    }
+</div>

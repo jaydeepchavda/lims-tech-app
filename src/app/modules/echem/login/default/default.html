@@ -1,0 +1,107 @@
+<div class="container-fluid vh-100">
+    <div class="row">
+        <div class="col-2">
+
+            <div class="my-1 px-1 py-1 border fw-semibold rounded text-center bg-secondary bg-opacity-25">
+                Login :: {{ currentPageTitle }}
+            </div>
+        </div>
+        <div class="navbar-content">
+            <nav class="navbar navbar-expand rounded p-1 " style="background:#003c74;">
+                <ul class="navbar-nav d-flex justify-content-between w-100">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white small px-2 py-1" routerLink="/default">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" 
+                            data-bs-toggle="dropdown">
+                            Project Manager
+                        </a>
+                        <ul class="dropdown-menu small mx-5">
+                            <li><a class="dropdown-item" routerLink="new-login-order">New Order</a></li>
+                            <li><a class="dropdown-item" routerLink="edit-login-order">Edit Order</a></li>
+                            <li><a class="dropdown-item" routerLink="copy-login-order">Copy Order</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" 
+                            data-bs-toggle="dropdown">
+                            Sample Management
+                        </a>
+                        <ul class="dropdown-menu small mx-5">
+                            <li><a class="dropdown-item" routerLink="smdefault">Login</a></li>
+                            <li><a class="dropdown-item" routerLink="smdefault">Verification of Shipment</a></li>
+                            <li><a class="dropdown-item" routerLink="CoolerEntry">Cooler/Sample Condition</a></li>
+                            <li><a class="dropdown-item" routerLink="LoginLabels">Labels</a></li>
+                            <li><a class="dropdown-item" routerLink="copy-login-order">Containers Labels</a></li>
+                            <li><a class="dropdown-item" routerLink="copy-login-order">Search ClientSampleID</a></li>
+                            <li><a class="dropdown-item" routerLink="copy-login-order">Search ProjectID</a></li>
+                            <li><a class="dropdown-item" routerLink="copy-login-order">Sign Off Process</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" 
+                            data-bs-toggle="dropdown">
+                            Sub Out
+                        </a>
+                        <ul class="dropdown-menu small">
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Sub Out COC</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Missing Invoice</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Quote To ProjectPrice</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Project Communication</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Insert SDGNo</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Sample Test Cancel</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Invoice Status</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" 
+                            data-bs-toggle="dropdown">
+                            Report
+                        </a>
+                        <ul class="dropdown-menu small">
+
+                            <li><a class="dropdown-item" routerLink="view-reports">PM Report</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">SM Report</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">Sample Login Report</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">Insert Cline Code INORG</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">VOC ICOC</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">Electronic Cover Sheet</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">EPA Analysis Name</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">EPA CoverPage</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">EPA Data Delivery</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">PSEG Quarterly Report</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown mx-5">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" 
+                            data-bs-toggle="dropdown">
+                            Upload Data
+                        </a>
+                        <ul class="dropdown-menu small">
+                            <li><a class="dropdown-item" routerLink="upload-sm-file">Upload SM File</a></li>
+                            <li><a class="dropdown-item" routerLink="upload-pm-subdata">Upload PM Subdata</a></li>
+                            <li><a class="dropdown-item" routerLink="upload-pm-quote-document">Upload PM Quote Document</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="login-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <p>Login works</p> -->
