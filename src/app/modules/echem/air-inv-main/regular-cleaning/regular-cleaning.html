@@ -4,7 +4,7 @@
             New Regulator Batch Creation
         </div>
 
-        <form [formGroup]="regulatorForm"    class="content-body p-5">
+        <form [formGroup]="regulatorForm"  (ngSubmit)="onNext()"  class="content-body p-5">
 
             <div class="row mb-3 justify-content-center">
                 <label class="col-auto fw-bold pe-0">Specification :</label>

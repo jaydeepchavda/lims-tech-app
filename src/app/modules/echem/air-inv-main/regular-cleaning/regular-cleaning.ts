@@ -1,17 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-regulator-cleaning',
+  selector: 'app-regular-cleaning',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
-  templateUrl: './regulator-cleaning.html',
-  styleUrl: './regulator-cleaning.css',
+  imports: [CommonModule,ReactiveFormsModule],
+  templateUrl: './regular-cleaning.html',
+  styleUrl: './regular-cleaning.css',
 })
-export class RegulatorCleaning {
-
-
+export class RegularCleaning {
 regulatorForm: FormGroup;
 
   // Exact options from your image
