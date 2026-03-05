@@ -3,6 +3,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-cooler-entry',
+  standalone:true,
   imports: [],
   templateUrl: './new-cooler-entry.html',
   styleUrl: './new-cooler-entry.css',

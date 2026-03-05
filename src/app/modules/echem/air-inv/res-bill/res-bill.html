@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card text-center shadow-sm border-primary m-2">
+                <div class="card-header">
+                    <h2 class="text-primary fw-semibold">Restaurant Order Form</h2>
+
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form">
+                    <form formGroupName="orderForm" (ngSubmit)="submit()">
+                        <div formGroupName="customer" class="card p-3 mb-3">
+                            <h5>Customer Info</h5>
+                            <input type="text" class="form-control mb-2" placeholder="name" formControlName="name">
+                            <input type="text" class="form-control" placeholder="email" formControlName="email">
+                            <input type="text" class="form-control" placeholder="phone" formControlName="phone">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Order Info</label>
+                            <select class="form-select" formControlName="orderType" id="">
+                                <option value="DINE_IN">Dine In</option>
+                                <option value="DELIVERY">Delivery</option>
+                            </select>
+                        </div>
+
+                        <div formGroupName="address" class="card p-3 mb-3">
+                            <h5>address</h5>
+                            <input type="text" class="form-control mb-2" placeholder="Street" controlFormName="street">
+                            <input type="text" class="form-control mb-2" placeholder="City" controlFormName="city">
+                            <input type="text" class="form-control mb-2" placeholder="zip" controlFormName="zip">
+                        </div>
+
+                        <div formArrayName="items" class="card p-3 mb-3">
+
+                            <h5>Order Items</h5>
+
+                            <button type="button" class="btn btn-sm btn-primary mb-2" (click)="addItem()">
+                                Add Item
+                            </button>
+
+                            @for(item of items.controls; track $index){
+
+                            <div class="border p-2 mb-2" [formGroupName]="$index">
+
+                                <select class="form-select mb-2" formControlName="itemName"
+                                    (change)="onItemChange($index, $event)">
+
+                                    @for(food of menuItems; track $index){
+                                    <option [value]="food.name">
+                                        {{ food.name }} - ₹{{ food.price }}
+                                    </option>
+                                    }
+                                </select>
+
+                                <input type="number" class="form-control mb-2" formControlName="quantity"
+                                    placeholder="Quantity">
+
+                                <button class="btn btn-danger btn-sm" type="button" (click)="removeItem($index)">
+                                    Remove
+                                </button>
+
+                            </div>
+
+                            }
+
+                        </div>
+                        <!-- payment -->
+                        <div class="mb-3">
+                            <label> Payment Method</label>
+                            <select class="form-select" formControlName="paymentMethod">
+                                <option value="CASH">Cash</option>
+                                <option value="CARD">Card</option>
+                                <option value="UPI">UPI
+                                <option>
+                            </select>
+                        </div>
+                        <!-- TIP -->
+                        <input type="number" class="form-control mb-3" formControlName="tip" placeholder="Tip Amount">
+
+                        <!-- AGREEMENT -->
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" formControlName="agree">
+                            <label class="form-check-label">
+                                Agree to Terms
+                            </label>
+                        </div>
+
+                        <div class="alert alert-info">
+                            Total Amount: ₹ {{ totalAmount }}
+                        </div>
+
+                        <button class="btn btn-success">Submit Order</button>
+                        <button type="button" class="btn btn-secondary ms-2" (click)="loadDemo()">
+                            Load Demo
+                        </button>
+                    </form>
+
+                    <!-- PREVIEW USING ngModel STYLE -->
+                    <div class="card mt-4 p-3">
+                        <h5>Live Preview (Two Way Feel)</h5>
+                        <pre>{{ previewData  }}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="main-container  py-3 ">
+    <div class="container border ">
+
+
+        <div class="lims-header  border-bottom">
+            New Regulator Batch Creation
+        </div>
+
+        <form [formGroup]="regulatorForm"    class="content-body p-5">
+
+            <div class="row mb-3 justify-content-center">
+                <label class="col-auto fw-bold pe-0">Specification :</label>
+                <div class="col-auto text-muted ps-2">mL/Minute [Hr For 6L] [Hr For 1.4L]</div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-3 text-end fw-bold">Type of Regulator :</div>
+                <div class="col-md-9" formArrayName="regulators">
+                    <div class="row row-cols-3 g-2">
+                        @for (ctrl of regulatorsArray.controls; track $index) {
+                        <div class="col">
+                            <div class="form-check d-flex align-items-center">
+                                <input class="form-check-input border-dark rounded-0" type="checkbox"
+                                    [formControlName]="$index">
+                                <label class="form-check-label ms-2 small">{{ options[$index] }}</label>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-1">
+                <label class="col-auto fw-bold text-end" style="width: 150px;">Regulator Batch :</label>
+                <div class="col-auto">
+                    <input type="text" class="form-control form-control-sm border-dark rounded-0"
+                        formControlName="batchId" style="width: 180px;">
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-3">
+                <label class="col-auto fw-bold text-end" style="width: 150px;">Cleaning Date :</label>
+                <div class="col-auto">
+                    <input type="text" class="form-control form-control-sm border-dark rounded-0"
+                        formControlName="cleaningDate" style="width: 180px;">
+                </div>
+            </div>
+
+            <div class="text-center mt-2">
+                <button type="submit" class="btn btn-next px-2 py-0 border-dark fw-bold">Next >></button>
+            </div>
+
+        </form>
+    </div>
+</div>

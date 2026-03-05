@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <div class="row">
+        <h4 class="text-center text-primary fw-semibold m-4 p-3">Please select the Quote ID to transfer the Prices</h4>
+    </div>
+    <div class="select-quoteid-content">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="row mb-0 align-items-center">
+                <label class="col-sm-5 col-form-label text-end small">
+                    <span class="text-danger"></span> Quote ID :
+                </label>
+                <div class="col-sm-7">
+                    <select class="form-select form-select" formControlName="priority"
+                        (change)="onViewQuoteIdChange($any($event.target).value)">
+
+                        <option value="">-- Quote ID --</option>
+                        @for (item of QuoteIdList; track $index) {
+                        <option [value]="item">{{ item }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="quoteIdTransfer-content">
+            @if(selectedQuoteId()){
+            <div class="main-transfer-content">
+                <div class="row mb-0 align-items-center mt-4">
+                    <label class="col-sm-6 col-form-label col-form-label-sm text-end small">
+                        <span class="text-danger"></span> Quote Id :
+                    </label>
+                    <div class="col-sm-6 col-form-label-sm">
+                        {{quoteId}}
+                    </div>
+                </div>
+                <div class="row mb-0 align-items-center">
+                    <label class="col-sm-6 col-form-label col-form-label-sm text-end small">
+                        <span class="text-danger"></span> CustomerID :
+                    </label>
+                    <div class="col-sm-6 col-form-label-sm">
+                        {{customerID}}
+                    </div>
+                </div>
+                <div class="row mb-0 align-items-center ">
+                    <label class="col-sm-6 col-form-label col-form-label-sm text-end small">
+                        <span class="text-danger"></span> CustomerName :
+                    </label>
+                    <div class="col-sm-6 col-form-label-sm">
+                        {{customerName}}
+                    </div>
+                </div>
+                <div class="row mb-0 align-items-center ">
+                    <label class="col-sm-6 col-form-label col-form-label-sm text-end small">
+                        <span class="text-danger"></span> ProjectID :
+                    </label>
+                    <div class="col-sm-6 col-form-label-sm">
+                        {{projectID}}
+                    </div>
+                </div>
+                <div class="row mb-0 align-items-center ">
+                    <label class="col-sm-6 col-form-label col-form-label-sm text-end small">
+                        <span class="text-danger"></span> Sales Contact :
+                    </label>
+                    <div class="col-sm-6 col-form-label-sm">
+                        {{SalesContact}}
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-auto">
+                        <div class="table-responsive">
+                            <table class="table table-bordered  text-center bg-white align-middle shadow-sm">
+                                <thead class="table-light small">
+                                    <tr>
+                                        <th class="px-2">10 BD</th>
+                                        <th class="px-2">5 BD</th>
+                                        <th class="px-2">3 BD</th>
+                                        <th class="px-2">2 BD</th>
+                                        <th class="px-2">1 BD</th>
+                                        <th class="px-2">SD</th>
+                                        <th class="px-2">15 BD</th>
+                                        <th class="px-2">4 BD</th>
+                                        <th class="px-2">7 BD</th>
+                                        <th class="border-0 bg-transparent"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="0" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="15" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="35" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="50" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="100" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="200" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="0" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="0" style="width: 50px;"></td>
+                                        <td><input type="text" class="form-control form-control-sm text-center border-1 border-dark"
+                                                value="5" style="width: 50px;"></td>
+                                        <td class="border-0">
+                                            <button class="btn btn-sm btn-outline-dark fw-bold py-0"
+                                                style="font-size: 11px; border-width: 2px;" type="button" (click)="onChangeBD()">Change</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-between mt-4 px-5">
+                    <div class="col-auto">
+                        <button class="btn btn-sm btn-outline-dark fw-bold shadow-sm" type="button" (click)="transferQuotePriorities()" style="border-width: 2px;">
+                            Transfer Quote Priorities
+                        </button>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-sm btn-outline-dark fw-bold shadow-sm" type="button" (click)="transferAllPriorities()"  style="border-width: 2px;">
+                            Transfer All Priorities
+                        </button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

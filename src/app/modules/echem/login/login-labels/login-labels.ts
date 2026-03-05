@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login-labels',
-  imports: [FormsModule,CommonModule],
+  standalone:true,
+  imports: [CommonModule,FormsModule],
   templateUrl: './login-labels.html',
   styleUrl: './login-labels.css',
 })

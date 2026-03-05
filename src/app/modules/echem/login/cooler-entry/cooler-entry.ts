@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cooler-entry',
+  standalone: true, 
   imports: [CommonModule],
   templateUrl: './cooler-entry.html',
   styleUrl: './cooler-entry.css',

@@ -1,0 +1,121 @@
+<div class="container-fluid py-4">
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+
+            <div class="d-flex align-items-center justify-content-center mb-4">
+                <label class="form-label small fw-semibold me-2">ADD OrderID :</label>
+                <input class="form-label small" #orderId name="orderId" type="text" id="orderIdInput" class="input">
+                <button class="btn btn-primary btn-sm ms-2" type="button" (click)="goButton(orderId.value)">Go </button>
+            </div>
+        </div>
+
+
+    </div>
+    @if(isSubCOCShow()) {
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="d-flex align-items-center justify-content-center mb-4">
+                <label class="form-label small fw-semibold me-2">Vendor : </label>
+                <select name="vendorProject" class="form-select border-secondary-subtle" style="width: 300px;">
+                    <option value="">-- Select Vendor --</option>
+                    @for (vendor of vendorList(); track vendor.id) {
+                    <option [value]="vendor.id">{{ vendor.name }}</option>
+                    }
+                </select>
+                <!-- <button class="btn btn-primary btn-sm ms-4" type="button">Go
+                </button> -->
+                <button class="btn btn-link btn-sm ps-4" (click)="addNewVendor()">Add new vendor</button>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-evenly mt-3">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <div class="tat-content d-flex align-items-center justify-content-start mb-4 ps-5">
+                <label class="form-label small fw-semibold me-2">TAT : </label>
+                <select name="tasSelect" id="tatSelect" class="form-select form-select-sm" style="width: 100px;">
+                    <option value="">-- Select TAT --</option>
+                    <option value="1">10</option>
+                    <option value="2">5</option>
+                    <option value="3">3</option>
+                    <option value="3">2</option>
+                    <option value="3" selected>1</option>
+                    <option value="3">0</option>
+                    <option value="3">15</option>
+                    <option value="3">4</option>
+                    <option value="3">3</option>
+                    <option value="3">3</option>
+                    <option value="3">3</option>
+                    <option value="3">7</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="edd-content d-flex align-items-center justify-content-start mb-4 ps-5">
+                <label class="form-label small fw-semibold me-2">EDD Type : </label>
+                <select name="eddTypeSelect" id="eddTypeSelect" class="form-select form-select-sm" style="width: 200px;">
+                    <option value="">-- Select EDD --</option>
+                    <option value="Excel NJ" selected>Excel NJ</option>
+                    <option value="CH2M-Hill SNEDD">CH2M-Hill SNEDD</option>
+                    <option value="EAEST">EAEST</option>
+                    <option value="ECC">ECC</option>
+                    <option value="5" >EnvironData</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="dataPackage-content d-flex  justify-content-center   mb-4 ps-5">
+                <label class="form-label small fw-semibold me-2">Data Package Type : </label>
+                <select name="eddTypeSelect" id="eddTypeSelect" class="form-select form-select-sm" style="width: 100px;">
+                    <option value="">-- Select EDD --</option>
+                    <option value="Results Only">Results Only</option>
+                    <option value="Analytical Summary 1">Analytical Summary 1</option>
+                    <option value="NJ Reduced">NJ Reduced</option>
+                    <option value="QA Review Package">QA Review Package</option>
+                    <option value="CLP" selected>CLP</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+    <div class="row d-flex justify-content-evenly mt-2">
+        <div class="col-1"></div>
+        
+        <div class="col-3">
+            <div class="d-flex align-items-center justify-content-start mb-4 ps-5">
+                <label class="form-label small fw-semibold me-2 text-nowrap">No. of Bottles : </label>
+                <input type="text" class="form-control form-control-sm" style="width: 150px;">
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="d-flex align-items-center justify-content-start mb-4 ps-5">
+                <label class="form-label small fw-semibold me-2 text-nowrap">PO# : </label>
+                <input type="text" class="form-control form-control-sm" style="width: 150px;">
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="d-flex align-items-start justify-content-start mb-4 ps-5">
+                <label class="form-label small fw-semibold me-2 text-nowrap">Comment : </label>
+                <textarea class="form-control form-control-sm" rows="3" style="width: 100%; max-width: 400px;"></textarea>
+            </div>
+        </div>
+        
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-auto">
+            <button class="btn btn-sm btn-primary fw-bold border-dark shadow-sm px-4" 
+                    
+                    type="button" (click)="processContinue()">
+                continue
+            </button>
+        </div>
+    </div>
+    }
+</div>

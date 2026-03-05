@@ -1,22 +1,20 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, NavigationEnd, Router,RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet ,Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
+
 
 @Component({
   selector: 'app-default',
-  standalone: true,
   imports: [RouterOutlet,RouterLink,FormsModule],
   templateUrl: './default.html',
   styleUrl: './default.css',
 })
-export class Default { 
+export class Default {
   currentPageTitle : string = 'main page';
-
   constructor(private router: Router, private activatedRoute: ActivatedRoute){
     console.log(this.router.url);
   }
-  
   ngOnInit(){
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -25,8 +23,7 @@ export class Default {
     });
     this.updateTitle();
   }
-
-  updateTitle(){
+   updateTitle(){
     // 3. Dig down to the deepest active route to find your 'data'
     let route = this.activatedRoute.root;
     while (route.firstChild) {

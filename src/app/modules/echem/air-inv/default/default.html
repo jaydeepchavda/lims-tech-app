@@ -1,0 +1,104 @@
+<div class="container-fluid vh-100">
+    <div class="row">
+        <div class="col-2">
+
+            <div class="my-1 px-1 py-1 border fw-semibold rounded text-center bg-secondary bg-opacity-25">
+                Login :: {{ currentPageTitle }}
+            </div>
+        </div>
+        <div class="navbar-content">
+            <nav class="navbar navbar-expand rounded p-1 " style="background:#003c74;">
+                <ul class="navbar-nav d-flex justify-content-between w-100">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white small px-2 py-1" routerLink="/default">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" data-bs-toggle="dropdown">
+
+                            Can & Reg Maintenance
+                        </a>
+                        <ul class="dropdown-menu small mx-5">
+                            <li><a class="dropdown-item" routerLink="new-login-order">Canister Regulator </a></li>
+                            <li><a class="dropdown-item" routerLink="RegulatorCleaning">Regulator Cleaning </a></li>
+                            <li><a class="dropdown-item" routerLink="copy-order">View Regulator</a></li>
+                            <li><a class="dropdown-item" routerLink="Res-bill">Res Bill</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" data-bs-toggle="dropdown">
+                            Cleaning Batch
+                        </a>
+                        <ul class="dropdown-menu small mx-5">
+                            <li><a class="dropdown-item" routerLink="smdefault">Add</a></li>
+                            <li><a class="dropdown-item" routerLink="smdefault">View/Edit</a></li>
+                            <li><a class="dropdown-item" routerLink="CoolerEntry">Report</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" data-bs-toggle="dropdown">
+                            Canister Shipment
+                        </a>
+                        <ul class="dropdown-menu small">
+                            <li><a class="dropdown-item" routerLink="sub-out-coc">add</a></li>
+                            <li><a class="dropdown-item" routerLink="new-login-order">View</a></li>
+                            <li><a class="dropdown-item" routerLink="quote-transfer-main">Report</a></li>
+                            <li><a class="dropdown-item" routerLink="sub-out-entry">Invoice Report</a></li>
+                            <li><a class="dropdown-item" routerLink="insert-sdgno">Cancel Order</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" data-bs-toggle="dropdown">
+                            Canister Received
+                        </a>
+                        <ul class="dropdown-menu small">
+                            <li><a class="dropdown-item" routerLink="view-reports">PM Report</a></li>
+                            
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown mx-5">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" data-bs-toggle="dropdown">
+                            Report
+                        </a>
+                        <ul class="dropdown-menu small">
+                            <li><a class="dropdown-item" routerLink="view-reports">PM Report</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">SM Report</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">Sample Login Report</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">Insert Cline Code INORG</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">VOC ICOC</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">Electronic Cover Sheet</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">EPA Analysis Name</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">EPA CoverPage</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">EPA Data Delivery</a></li>
+                            <li><a class="dropdown-item" routerLink="view-reports">PSEG Quarterly Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mx-5">
+                        <a class="nav-link text-white small px-2 py-1 dropdown-toggle" data-bs-toggle="dropdown">
+                            Pending BottleOrder
+                        </a>
+                        <ul class="dropdown-menu small">
+                            <li><a class="dropdown-item" routerLink="upload-sm-file">Upload SM File</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="login-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <p>Login works</p> -->
