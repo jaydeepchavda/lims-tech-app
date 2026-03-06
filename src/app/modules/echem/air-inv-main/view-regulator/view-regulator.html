@@ -1,0 +1,56 @@
+<div class="main-view-content">
+    <div class="container">
+        <div class="row mb-0 align-items-center mt-4">
+            <label class="col-sm-5 col-form-label col-form-label-sm text-end small ">
+                <span class="text-danger"></span> Order ID :
+            </label>
+            <div class="col-sm-2">
+                <select class="form-select form-select-sm" formControlName="priority"
+                    (change)="onViewOrderIdChange($any($event.target).value)">
+                    <option value="">-- Select ID --</option>
+                    @for (item of batchCodes; track $index) {
+                    <option [value]="item">{{ item }}</option>
+                    }
+                </select>
+            </div>
+            @if(editBatchCodeShows()){
+        <div class="edit-batch-code-content text-center mt-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table ">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col">#Id</th>
+                                <th scope="col">Regulator  Size</th>
+                                <th scope="col">Cleaning Date</th>
+                                <th scope="col">Created By</th>
+                                <th scope="col">Created Date</th>
+                                <th scope="col">Regular ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(batch of batchData;track $index){
+                                <tr>
+                                    <td>{{batch.id}}</td>
+                                    <td>{{batch.regulatorSize}}</td>
+                                    <td>{{batch.cleaningDate}}</td>
+                                    <td>{{batch.createdBy}}</td>
+                                    <td>{{batch.createdDate}}</td>
+                                    <td>{{batch.regularID}}</td>
+
+                                </tr>
+                            }   
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        }
+            <div class="text-center">
+
+                <button class="btn btn-primary btn-sm mt-4" (click)="editBatch()"> Edit Batch </button>
+            </div>
+        </div>
+        
+    </div>
+</div>

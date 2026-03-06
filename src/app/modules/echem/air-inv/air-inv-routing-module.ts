@@ -11,6 +11,7 @@ const routes: Routes = [
     component: Default,
     children: [
       { path: 'RegulatorCleaning', component: RegulatorCleaning, data: { title: 'Regulator Cleaning' } },
+      { path: 'RegularCleaningAir', component: RegulatorCleaning, data: { title: 'Regular Cleaning Air' }} ,
       { path: 'Res-bill', component: ResBill, data: { title: 'Res-bill' } },
 
     ]

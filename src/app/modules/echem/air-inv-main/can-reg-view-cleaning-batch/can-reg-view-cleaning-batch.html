@@ -1,0 +1,75 @@
+<div class="main-container  py-3 ">
+    <div class="container border border-dark ">
+        <div class="lims-header  border-bottom border-dark">
+            New Batch Creation
+        </div>
+        <div class="row mb-0 align-items-center mt-4">
+            <label class="col-sm-5 col-form-label col-form-label-sm text-end small ">
+                <span class="text-danger"></span> Batch Code :
+            </label>
+            <div class="col-sm-2">
+                <select class="form-select form-select-sm" formControlName="priority"
+                    (change)="onViewOrderIdChange($any($event.target).value)">
+                    <option value="">-- Select ID --</option>
+                    @for (item of batchCodes; track $index) {
+                    <option [value]="item">{{ item }}</option>
+                    }
+                </select>
+            </div>
+            @if(editBatchCodeShows()){
+            <div class="edit-batch-code-content text-center mt-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table ">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col">#Id</th>
+                                    <th scope="col">Can Size</th>
+                                    <th scope="col">Cleaning Date</th>
+                                    <th scope="col">Created By</th>
+                                    <th scope="col">Created Date</th>
+                                    <th scope="col">Canister ID</th>
+                                    <th scope="col">VAfterClean</th>
+                                    <th scope="col">VAC_Date</th>
+                                    <th scope="col">Analysis Date</th>
+                                    <th scope="col">VAfter24</th>
+                                    <th scope="col">VA24_Date</th>
+                                    <th scope="col">Batch Certified	</th>
+                                    <th scope="col">CertificationId</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(batch of batchData;track $index){
+                                <tr>
+                                    <td>{{batch.id}}</td>
+                                    <td>{{batch.canSize}}</td>
+                                    <td>{{batch.cleaningDate}}</td>
+                                    <td>{{batch.createdBy}}</td>
+                                    <td>{{batch.createdDate}}</td>
+                                    <td>{{batch.canisterID}}</td>
+                                    <td>{{batch.VAfterClean}} </td>
+                                    <td>{{batch.VAC_Date}}</td>
+                                    <td>{{batch.AnalysisDate}}</td>
+                                    <td>{{batch.VAfter24}}</td>
+                                    <td>{{batch.VA24_Date}}</td>
+                                    <td>{{batch.batchCertified}}</td>
+                                    <td>{{batch.certificationID}}</td>
+
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            }
+            <div class="text-center">
+
+                <button class="btn btn-primary btn-sm mt-4 mb-4" (click)="editBatch()"> Edit Batch </button>
+            </div>
+        </div>
+
+    </div>
+</div>

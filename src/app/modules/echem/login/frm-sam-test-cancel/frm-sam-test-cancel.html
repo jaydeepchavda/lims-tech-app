@@ -4,22 +4,22 @@
     </div>
     <div class="select-quoteid-content">
         <div class="d-flex justify-content-center align-items-center">
-            <div class="row mb-0 align-items-center">
-                <label class="col-sm-5 col-form-label col-form-label-sm text-end small">
-                    <span class="text-danger"></span> Order ID :
-                </label>
-                <div class="col-sm-7">
-                    <select class="form-select form-select-sm" formControlName="priority"
-                        (change)="onViewOrderIdChange($any($event.target).value)">
+                <div class="row mb-0 align-items-center">
+                    <label class="col-sm-5 col-form-label col-form-label-sm text-end small">
+                        <span class="text-danger"></span> Order ID :
+                    </label>
+                    <div class="col-sm-7">
+                        <select class="form-select form-select-sm" formControlName="priority"
+                            (change)="onViewOrderIdChange($any($event.target).value)">
 
-                        <option value="">-- Order ID --</option>
-                        @for (item of OrderIdList; track $index) {
-                        <option [value]="item">{{ item }}</option>
-                        }
-                    </select>
+                            <option value="">-- Order ID --</option>
+                            @for (item of OrderIdList; track $index) {
+                            <option [value]="item">{{ item }}</option>
+                            }
+                        </select>
+                    </div>
+                    <button class="btn btn-primary btn-sm mt-4" (click)="goButton()"> Go </button>
                 </div>
-                <button class="btn btn-primary btn-sm mt-4" (click)="goButton()"> Go </button>
-            </div>
         </div>
     </div>
     <div class="sample-test-content">
