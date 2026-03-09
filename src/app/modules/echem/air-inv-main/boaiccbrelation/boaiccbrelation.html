@@ -1,0 +1,114 @@
+<div class="container py-4">
+  <div class="card shadow-sm mb-4">
+    <div class="card-body bg-light">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-auto">
+          <label class="fw-bold">Bottle ID:</label>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" (change)="onViewOrderIdChange($any($event.target).value)">
+            <option value="">-- Select Bottle ID --</option>
+            @for (item of batchCodes; track item) {
+              <option [value]="item">{{ item }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if(isAddCOCShow()){
+    <div class="card mb-4 border-0 shadow-sm">
+      <!-- <div class="card-header bg-primary text-white">
+      </div> -->
+      <div class="card-body border">
+        <div class="row mb-3 bg-primary text-white">
+          <div class="col-md-6 border-end">
+            <small class=" d-block text-uppercase fw-bold">Client</small>
+            <span>{{ pageData().clientId }}</span>
+          </div>
+          <div class="col-md-6">
+            <small class=" d-block text-uppercase fw-bold">Project</small>
+            <span>{{ pageData().projectId }}</span>
+          </div>
+        </div>
+        <div class="row pt-2 border-top bg-primary text-white">
+          <div class="col-md-4">
+            <small class=" d-block">Bottle Date: <strong>{{ pageData().bottleDate }}</strong></small>
+          </div>
+          <div class="col-md-4">
+            <small class=" d-block">Created By: <strong>{{ pageData().createdBy }}</strong></small>
+          </div>
+          <div class="col-md-4">
+            <small class=" d-block">Delivery: <strong>{{ pageData().deliveryDate }}</strong></small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8">
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm text-center">
+            <thead class="table-light">
+              <tr>
+                <th>Canister Type</th>
+                <th>Quantity</th>
+                <th>Regulator Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of pageData().summary; track item.type) {
+                <tr>
+                  <td>{{ item.type }}</td>
+                  <td>{{ item.qty }}</td>
+                  <td>{{ item.reg }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-primary">
+            <tr class="small text-uppercase">
+              <th>#</th>
+              <th>Batch ID</th>
+              <th>Canister ID</th>
+              <th>Size</th>
+              <th>Certification</th>
+              <th style="min-width: 150px;">Regulator ID</th>
+              <th>VAfter24</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of pageData().details; track row.id) {
+              <tr>
+                <td><input type="checkbox" class="form-check-input"></td>
+                <td class="fw-bold">{{ row.batchId }}</td>
+                <td>{{ row.canisterId }}</td>
+                <td><span class="badge bg-secondary">{{ row.size }}</span></td>
+                <td class="small text-muted">{{ row.certId }}</td>
+                <td>
+                  <select class="form-select form-select-sm">
+                    <option>{{ row.regId }} [{{ row.regType }}]</option>
+                  </select>
+                </td>
+                <td class="text-danger fw-bold">{{ row.vAfter }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+    <div class="button-content text-center">
+        <button class="btn btn-primary btn-sm mt-5" (click)="onSubmit()">submit </button>
+
+    </div>
+  }
+</div>

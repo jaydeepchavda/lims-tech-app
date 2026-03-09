@@ -6,6 +6,7 @@ import { ResBill } from '../air-inv/res-bill/res-bill';
 import { ViewRegulator } from './view-regulator/view-regulator';
 import { CanRegCleaningBatch } from './can-reg-cleaning-batch/can-reg-cleaning-batch';
 import { CanRegViewCleaningBatch } from './can-reg-view-cleaning-batch/can-reg-view-cleaning-batch';
+import { BOAICCBRelation } from './boaiccbrelation/boaiccbrelation';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -18,6 +19,8 @@ const routes: Routes = [
           { path: 'View-regulator', component: ViewRegulator , data: { title: 'View regulator' } },
           { path: 'canRagCleaningBatch', component: CanRegCleaningBatch, data: { title: 'Canister Cleaning Batch Creation' } },
           { path: 'canRagViewCleaningBatch', component: CanRegViewCleaningBatch, data: { title: 'View Canister Cleaning Batch' } },
+          { path: 'boaiccbrelation', component: BOAICCBRelation, data: { title: 'add coc' } },
+
 
 
           { path: 'Res-bill', component: ResBill, data: { title: 'Res Bill' } },
