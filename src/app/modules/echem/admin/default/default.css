@@ -1,0 +1,32 @@
+/* Container for each link to manage the borders */
+.admin-grid-item {
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+/* The actual link text */
+.nav-link-elegant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Uniform height for a perfect grid */
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #495057;
+    text-decoration: none;
+    padding: 10px;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
+}
+
+.admin-grid-item:hover {
+    background-color: #f8f9fa;
+    z-index: 1;
+    box-shadow: inset 0 0 0 1px #0d6efd;
+}
+
+.admin-grid-item:hover .nav-link-elegant {
+    color: #0d6efd;
+}

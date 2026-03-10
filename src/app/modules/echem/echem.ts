@@ -6,7 +6,7 @@ import { Footer } from '../../footer/footer';
 @Component({
   selector: 'app-echem',
   standalone: true,  
-  imports: [ RouterOutlet, Header,Footer],
+  imports: [ RouterOutlet, Header],
   templateUrl: './echem.html',
   styleUrl: './echem.css',
 })

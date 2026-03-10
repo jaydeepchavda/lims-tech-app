@@ -21,8 +21,6 @@ const routes: Routes = [
           { path: 'canRagViewCleaningBatch', component: CanRegViewCleaningBatch, data: { title: 'View Canister Cleaning Batch' } },
           { path: 'boaiccbrelation', component: BOAICCBRelation, data: { title: 'add coc' } },
 
-
-
           { path: 'Res-bill', component: ResBill, data: { title: 'Res Bill' } },
           ]
           }

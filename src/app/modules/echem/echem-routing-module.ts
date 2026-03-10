@@ -23,6 +23,10 @@ const routes: Routes = [
       {
         path: 'air-inv-main',
         loadChildren: () => import('./air-inv-main/air-inv-main-module').then(m => m.AirInvMainModule)
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin-module').then(m => m.AdminModule)
       }
     ]
   }
