@@ -1,0 +1,29 @@
+/* Custom Orange for Buttons */
+.btn-orange {
+    background-color: #f7941d;
+    border-color: #e88612;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.btn-orange:hover {
+    background-color: #e88612;
+    color: white;
+}
+
+/* Table Refinements */
+.table-bordered th, .table-bordered td {
+    border-color: #dee2e6 !important;
+}
+
+/* Modern Hover Effect */
+tbody tr:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* Checkbox Style */
+.form-check-input:checked {
+    background-color: #198754; /* Success Green */
+    border-color: #198754;
+}

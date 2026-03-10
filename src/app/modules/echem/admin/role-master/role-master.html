@@ -1,1 +1,53 @@
-<p>role-master works!</p>
+<div class="container-fluid mt-3">
+  <div class="card border-0 shadow-sm mx-auto mb-3" style="max-width: 600px;">
+    <div class="card-body p-3 bg-light rounded shadow-sm">
+      <div class="row g-2 align-items-center mb-2">
+        <div class="col-3 text-end fw-bold small">Role Name :</div>
+        <div class="col-9">
+          <input type="text" class="form-control form-control-sm" [ngModel]="roleName()">
+        </div>
+      </div>
+      <div class="row g-2 align-items-center mb-3">
+        <div class="col-3 text-end fw-bold small">Description :</div>
+        <div class="col-9">
+          <textarea class="form-control form-control-sm" rows="2" [ngModel]="description()"></textarea>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-orange btn-sm px-4 me-2 shadow-sm">Update</button>
+        <button class="btn btn-orange btn-sm px-4 shadow-sm" routerLink="../RoleList">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto border shadow-sm rounded bg-white overflow-hidden" style="max-width: 900px;">
+    <table class="table table-sm table-bordered table-hover mb-0 align-middle">
+      <thead class="text-center">
+        <tr style="background-color: #d1e2e9;">
+          <th class="py-2 small text-decoration-underline" style="width: 70%;">Page Name</th>
+          <th class="py-2 small text-decoration-underline" style="width: 15%;">View</th>
+          <th class="py-2 small text-decoration-underline" style="width: 15%;">Operation</th>
+        </tr>
+      </thead>
+      <tbody class="small">
+        <tr class="bg-light">
+          <td colspan="3" class="ps-3 py-1 fw-bold text-muted" style="font-size: 0.75rem;">
+            -------------------------------------------------Admin
+          </td>
+        </tr>
+
+        @for (page of pages(); track page.name) {
+          <tr>
+            <td class="ps-3 py-1 fw-semibold text-dark">{{ page.name }}</td>
+            <td class="text-center">
+              <input type="checkbox" class="form-check-input border-secondary" [checked]="page.view">
+            </td>
+            <td class="text-center">
+              <input type="checkbox" class="form-check-input border-secondary" [checked]="page.op">
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
