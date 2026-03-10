@@ -1,0 +1,8 @@
+.hide-caret::after {
+    display: none !important;
+}
+
+.dropdown-item:hover {
+    background-color: #070808;
+    color: #0d6efd;
+}

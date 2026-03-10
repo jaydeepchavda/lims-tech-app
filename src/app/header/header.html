@@ -3,14 +3,12 @@
     <div class="container-fluid px-4">
 
         <a class="navbar-brand d-flex align-items-center fw-bold text-info" routerLink="/lims/echem/dashboard">
-    <img src="assets/images/logo_second.jpg" 
-         alt="Logo" 
-         width="140" 
-         height="60"
-         class="d-inline-block align-top me-2  border border-info border-opacity-50 shadow-sm" style="border-radius: 5%;">
-    
-    <span>Alliance Group</span>
-</a>
+            <img src="assets/images/logo_second.jpg" alt="Logo" width="140" height="60"
+                class="d-inline-block align-top me-2  border border-info border-opacity-50 shadow-sm"
+                style="border-radius: 5%;">
+
+            <span>Alliance Group</span>
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -38,6 +36,53 @@
                 <button class="btn btn-outline-light btn-sm d-none d-sm-block" type="submit">Search</button>
             </form>
 
+            <div class="dropdown me-3">
+                <a class="text-white text-decoration-none dropdown-toggle hide-caret" href="#" role="button"
+                    id="notificationMenu" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                        class="bi bi-bell-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                    </svg>
+
+                    <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle p-1"
+                        style="font-size: 0.65rem; min-width: 18px;">
+                        4
+                    </span>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end shadow-lg mt-2" aria-labelledby="notificationMenu"
+                    style="width: 280px; font-size: 13px;">
+                    <li class="dropdown-header fw-bold text-primary border-bottom pb-2 mb-1">Recent Notifications</li>
+
+                    <li><a class="dropdown-item py-2" href="#">
+                            <div class="fw-bold">New Batch Created</div>
+                            <small class="text-muted">Batch R2603001 is now active.</small>
+                        </a></li>
+
+                    <li><a class="dropdown-item py-2" href="#">
+                            <div class="fw-bold">Cleaning Reminder</div>
+                            <small class="text-muted">Regulator maintenance due in 2 hours.</small>
+                        </a></li>
+
+                    <li><a class="dropdown-item py-2" href="#">
+                            <div class="fw-bold">System Update</div>
+                            <small class="text-muted">AirInv module updated to v2.1.</small>
+                        </a></li>
+
+                    <li><a class="dropdown-item py-2" href="#">
+                            <div class="fw-bold">User Login</div>
+                            <small class="text-muted">New login detected from IP 192.168.1.1</small>
+                        </a></li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-center text-primary fw-bold small" href="#">View All
+                            Notifications</a></li>
+                </ul>
+            </div>
             <button class="btn btn-dark border-secondary" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -69,7 +114,8 @@
             <hr class="border-secondary">
             <p class="text-secondary px-3">Quick Links</p>
             <li class="nav-item">
-                <a class="nav-link px-3 text-info" routerLink="/lims/echem/dashboard" data-bs-dismiss="offcanvas">Home</a>
+                <a class="nav-link px-3 text-info" routerLink="/lims/echem/dashboard"
+                    data-bs-dismiss="offcanvas">Home</a>
             </li>
         </ul>
     </div>
