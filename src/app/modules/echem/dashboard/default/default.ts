@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Footer } from '../../../../footer/footer';
 
 type DashboardPost = {
   id: number;
@@ -12,7 +13,7 @@ type DashboardPost = {
 @Component({
   selector: 'app-default',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,Footer],
   templateUrl: './default.html',
   styleUrl: './default.css',
 })
@@ -27,7 +28,7 @@ export class Default {
     this.timer = setInterval(() => {
       this.i = (this.i + 1) % this.connectionsArr.length;
       this.displayConnections.set(this.connectionsArr[this.i]);
-    }, 5000);
+    }, 3000);
   }
   ngOnDestroy() {
     if (this.timer) clearInterval(this.timer);
