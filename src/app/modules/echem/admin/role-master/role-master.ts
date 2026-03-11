@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
@@ -10,10 +10,10 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   styleUrl: './role-master.css',
 })
 export class RoleMaster {
-  roleName = signal('Admin');
-  description = signal('Admin have full rights.');
-  roleId = signal(1);
-  // Simulated data from your image
+  roleName = signal('');
+  description = signal('');
+  roleId = signal(0);
+  isIdAvailableToShow = computed(() => this.roleId() > 0);
   pages = signal([
     { name: 'WhatIsGoingOn', view: true, op: true },
     { name: 'User Master', view: true, op: true },
@@ -45,4 +45,17 @@ export class RoleMaster {
       }
     });
   }
+
+  updateRole(){
+    alert("The role has been updated successfully.")
+  }
+
+  // isIdAvailableToShow = signal(false)
+  // checkId(){
+  //   if(this.roleId()>1){
+  //     this.isIdAvailableToShow.set(true);
+  //   }else{
+  //     this.isIdAvailableToShow.set(false);
+  //   }
+  // }
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Default } from './default/default';
 import { RoleList } from './role-list/role-list';
 import { RoleMaster } from './role-master/role-master';
+import { NavMaster } from './nav-master/nav-master';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -14,7 +15,9 @@ const routes: Routes = [
     // ]
   },
   { path: 'RoleList', component: RoleList, data: { title: 'Role List' } },
-  { path: 'RoleMaster', component: RoleMaster, data: { title: 'Role Master' } }
+  { path: 'RoleMaster', component: RoleMaster, data: { title: 'Role Master' } },
+  { path: 'nav-master', component: NavMaster, data: { title: 'Nav Master' } },
+
 
 ];
 

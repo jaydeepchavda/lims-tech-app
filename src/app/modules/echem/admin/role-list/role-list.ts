@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-role-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './role-list.html',
   styleUrl: './role-list.css',
 })
@@ -21,5 +21,8 @@ export class RoleList {
     queryParams: { id: role.id }, 
     state: { roleData: role }    
   });
+}
+onDelete(role: any){
+  alert("You are not permission to delete this role")
 }
 }

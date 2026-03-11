@@ -14,12 +14,13 @@
         </div>
       </div>
       <div class="text-center">
-        <button class="btn btn-orange btn-sm px-4 me-2 shadow-sm">Update</button>
+        <button class="btn btn-orange btn-sm px-4 me-2 shadow-sm" (click)="updateRole()">Update</button>
         <button class="btn btn-orange btn-sm px-4 shadow-sm" routerLink="../RoleList">Back</button>
       </div>
     </div>
   </div>
 
+  @if(isIdAvailableToShow()){
   <div class="mx-auto border shadow-sm rounded bg-white overflow-hidden" style="max-width: 900px;">
     <table class="table table-sm table-bordered table-hover mb-0 align-middle">
       <thead class="text-center">
@@ -32,22 +33,23 @@
       <tbody class="small">
         <tr class="bg-light">
           <td colspan="3" class="ps-3 py-1 fw-bold text-muted" style="font-size: 0.75rem;">
-            -------------------------------------------------Admin
+            ------------------------------------------Admin
           </td>
         </tr>
 
         @for (page of pages(); track page.name) {
-          <tr>
-            <td class="ps-3 py-1 fw-semibold text-dark">{{ page.name }}</td>
-            <td class="text-center">
-              <input type="checkbox" class="form-check-input border-secondary" [checked]="page.view">
-            </td>
-            <td class="text-center">
-              <input type="checkbox" class="form-check-input border-secondary" [checked]="page.op">
-            </td>
-          </tr>
+        <tr>
+          <td class="ps-3 py-1 fw-semibold text-dark">{{ page.name }}</td>
+          <td class="text-center">
+            <input type="checkbox" class="form-check-input border-secondary" [checked]="page.view">
+          </td>
+          <td class="text-center">
+            <input type="checkbox" class="form-check-input border-secondary" [checked]="page.op">
+          </td>
+        </tr>
         }
       </tbody>
     </table>
   </div>
+  }
 </div>
