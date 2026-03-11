@@ -10,14 +10,16 @@ const routes: Routes = [
   {
     path: 'default',
     component: Default,
-    // children:[
-    //   {path: 'RoleList', component: RoleList, data: { title: 'RoleList'}}
-    // ]
   },
   { path: 'RoleList', component: RoleList, data: { title: 'Role List' } },
   { path: 'RoleMaster', component: RoleMaster, data: { title: 'Role Master' } },
   { path: 'nav-master', component: NavMaster, data: { title: 'Nav Master' } },
-
+  {
+    path: 'sample-master',
+    loadChildren: () =>
+      import('./sample-master/sample-master-module')
+        .then(m => m.SampleMasterModule)
+  }
 
 ];
 

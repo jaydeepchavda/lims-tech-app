@@ -1,0 +1,76 @@
+    <div class="container-fluid mt-3">
+
+    <div class="row">
+
+        <!-- LEFT MENU -->
+        <div class="col-md-3 col-lg-2">
+
+        <div class="card shadow-sm">
+
+            <div class="card-header bg-dark text-white fw-semibold">
+            Sample Master
+            </div>
+
+            <div class="list-group list-group-flush">
+
+            <button class="list-group-item list-group-item-action"
+                routerLink="methods"
+                routerLinkActive="active">
+                Methods
+            </button>
+
+            <button class="list-group-item list-group-item-action"
+                routerLink="prep-methods"
+                routerLinkActive="active">
+                Prep. Methods
+            </button>
+
+            <button class="list-group-item list-group-item-action"
+                routerLink="dept-orders"
+                routerLinkActive="active">
+                Dept Orders
+            </button>
+
+            <button class="list-group-item list-group-item-action"
+                routerLink="test-group"
+                routerLinkActive="active">
+                Test Group
+            </button>
+
+            <button class="list-group-item list-group-item-action"
+                routerLink="prices"
+                routerLinkActive="active">
+                Prices
+            </button>
+
+            <button class="list-group-item list-group-item-action"
+                routerLink="details"
+                routerLinkActive="active">
+                Details
+            </button>
+
+            </div>
+
+        </div>
+
+        </div>
+
+
+        <!-- PAGE CONTENT -->
+        <div class="col-md-9 col-lg-10">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+            <router-outlet></router-outlet>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+
+    </div>

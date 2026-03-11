@@ -1,0 +1,20 @@
+.sample-menu {
+  display: flex;
+  gap: 10px;
+  background: #e6d8a7;
+  padding: 6px;
+  border-bottom: 1px solid #c9b97a;
+}
+
+.sample-menu a {
+  padding: 6px 14px;
+  text-decoration: none;
+  color: black;
+  background: #e6d8a7;
+  border: 1px solid #c9b97a;
+}
+
+.sample-menu a.active {
+  background: #d2c07f;
+  font-weight: bold;
+}

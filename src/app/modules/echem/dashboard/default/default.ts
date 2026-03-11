@@ -13,31 +13,38 @@ type DashboardPost = {
 @Component({
   selector: 'app-default',
   standalone: true,
-  imports: [FormsModule,Footer],
+  imports: [FormsModule, Footer],
   templateUrl: './default.html',
   styleUrl: './default.css',
 })
 export class Default {
-  private connectionsArr = [79, 65, 83,45,36,29,53,71,97,68,88,91,97,57,64,81,59,92];
+  private connectionsArr = [79, 65, 83, 45, 36, 29, 53, 71, 97, 68, 88, 91, 97, 57, 64, 81, 59, 92];
   private i = 0;
   private timer: any;
   displayConnections = signal(this.connectionsArr[0]);
-
+selectedFacility: string = 'Greenville';
   ngOnInit() {
     //  Show next every 5 seconds (5000ms)
     this.timer = setInterval(() => {
       this.i = (this.i + 1) % this.connectionsArr.length;
       this.displayConnections.set(this.connectionsArr[this.i]);
     }, 3000);
+    const savedFacility = localStorage.getItem('facility');
+
+    if (savedFacility) {
+      this.selectedFacility = savedFacility;
+    } else {
+      this.selectedFacility = 'Greenville';
+    }
   }
   ngOnDestroy() {
     if (this.timer) clearInterval(this.timer);
   }
 
-  // add post functionality
+
   newPostText = '';
-  
-  // Default posts for a better UI [cite: 2026-03-10]
+
+
   posts = signal([
     { id: 1, author: 'Jaydip Chavda', time: '1h ago', content: 'Building a LIMS system is challenging but fun! 🧪' },
     { id: 2, author: 'Jaydip Chavda', time: '3h ago', content: 'Just mastered Angular Signals today. 🚀' }
@@ -57,10 +64,21 @@ export class Default {
     };
 
     this.posts.set([newEntry, ...this.posts()]);
-    this.newPostText = ''; // Clear input
+    this.newPostText = '';
   }
 
   deletePost(id: number) {
     this.posts.set(this.posts().filter(p => p.id !== id));
   }
+
+
+  onFacilityChange(event: Event) {
+
+  const selectElement = event.target as HTMLSelectElement;
+  this.selectedFacility = selectElement.value;
+
+  // save selection
+  localStorage.setItem('facility', this.selectedFacility);
+
+}
 }

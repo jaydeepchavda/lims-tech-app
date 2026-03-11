@@ -23,10 +23,6 @@ export class NavMaster {
   ]);
   updateNavigation(){
     alert("The navigation has been updated successfully.")
-    // this.navigationRecords.update(records => records.map(record => 
-    //   record.navNo === '2001' ? {...record, isNew: false} : record
-    // ))
-    // this.isNavAvailableToShow(false)
     this.selectedModule.set('');
   }
   selectedModule = signal('')
