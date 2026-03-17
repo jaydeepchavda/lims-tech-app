@@ -1,0 +1,534 @@
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-2">
+            <div class="my-1 px-1 py-1 border fw-semibold rounded text-center bg-secondary bg-opacity-25">
+                Admin :: {{ currentPageTitle }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-md-3 col-lg-2 mt-3">
+                    <div class="card shadow-sm border-0 ">
+                        <div class="list-group list-group-flush">
+
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'methods'" (click)="selectBlock('methods')">
+                                Methods
+                            </button>
+
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'param-cas'" (click)="selectBlock('param-cas')">
+                                Param CAS#
+                            </button>
+
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'test-group'" (click)="selectBlock('test-group')">
+                                Tests
+                            </button>
+
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'metrices'" (click)="selectBlock('metrices')">
+                                Metrices
+                            </button>
+
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'priorities'" (click)="selectBlock('priorities')">
+                                Priorities
+                            </button>
+
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'departments'" (click)="selectBlock('departments')">
+                                Departments
+                            </button>
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'new-test'" (click)="selectBlock('new-test')">
+                                New Test
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 col-lg-10">
+                    <div class="card shadow-sm p-4 bg-white border-0 min-vh-50">
+
+                        @switch (activeBlock()) {
+                        @case ('methods') {
+                        <div class="fade-in">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                <h5 class="text-primary mb-0">Method Configuration</h5>
+                            </div>
+
+                            <div class="row justify-content-center mb-4">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Method :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-start mb-2">
+                                        <label class="col-4 text-end fw-bold small mt-1">Description :</label>
+                                        <div class="col-6">
+                                            <textarea class="form-control form-control-sm border-secondary-subtle"
+                                                rows="2"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-6">
+                                            <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                ADD
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center">
+                                        <label class="col-4 text-end fw-bold small">Search Method :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle"
+                                                [ngModel]="methodSearchTerm()"
+                                                (ngModelChange)="methodSearchTerm.set($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive shadow-sm rounded border">
+                                <table class="table table-sm table-bordered mb-0 align-middle table-lims">
+                                    <thead class="text-dark fw-bold small">
+                                        <tr>
+                                            <th style="width: 80px;" class="ps-2">Action</th>
+                                            <th style="width: 250px;" class="ps-2">Method</th>
+                                            <th class="ps-2">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        @for(method of methodsList(); track method.id){
+                                        <tr>
+                                            <td class="ps-2">
+                                                <a class="action-link small">Delete</a>
+                                            </td>
+                                            <td class="ps-2 fw-semibold text-dark">{{method.name}}</td>
+                                            <td class="ps-2 text-muted">{{method.description}}</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        }
+                        @case ('param-cas') {
+                        <div class="fade-in">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                <h5 class="text-primary mb-0">Param CAS Configuration</h5>
+                            </div>
+
+                            <div class="row justify-content-center mb-4">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Param :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-start mb-2">
+                                        <label class="col-4 text-end fw-bold small mt-1">Cas# :</label>
+                                        <div class="col-6">
+                                            <textarea class="form-control form-control-sm border-secondary-subtle"
+                                                rows="2"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-6">
+                                            <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                ADD
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center">
+                                        <label class="col-4 text-end fw-bold small">Search Param :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle"
+                                                [ngModel]="methodSearchTerm()"
+                                                (ngModelChange)="methodSearchTerm.set($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive shadow-sm rounded border">
+                                <table class="table table-sm table-bordered mb-0 align-middle table-lims">
+                                    <thead class="text-dark fw-bold small">
+                                        <tr>
+                                            <th class="ps-2">Param</th>
+                                            <th class="ps-2">CAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        @for(param of parmaList(); track param.id){
+                                        <tr>
+
+                                            <td class="ps-2 fw-semibold text-dark">{{param.paramName}}</td>
+                                            <td class="ps-2 text-muted">{{param.CAS}}</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        }
+
+                        @case ('test-group') {
+                        <div class="fade-in">
+                            <h5 class="text-primary border-bottom pb-2">Test Group Settings</h5>
+                            <p>Manage your laboratory test groups here.</p>
+                        </div>
+                        }
+
+                        @case ('metrices') {
+                        <div class="fade-in">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                <h5 class="text-primary mb-0">Matrix Configuration</h5>
+                            </div>
+
+                            <div class="row justify-content-center mb-4">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Matrix :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Matrix Type:</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-start mb-2">
+                                        <label class="col-4 text-end fw-bold small mt-1">Desctiption :</label>
+                                        <div class="col-6">
+                                            <textarea class="form-control form-control-sm border-secondary-subtle"
+                                                rows="2"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-6">
+                                            <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                ADD
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row justify-content-center mb-3">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center">
+                                        <label class="col-4 text-end fw-bold small">Search Param :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle"
+                                                [ngModel]="methodSearchTerm()"
+                                                (ngModelChange)="methodSearchTerm.set($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="table-responsive shadow-sm rounded border">
+                                <table class="table table-sm table-bordered mb-0 align-middle table-lims">
+                                    <thead class="text-dark fw-bold small">
+                                        <tr>
+                                            <th class="ps-2">Matrix</th>
+                                            <th class="ps-2">Description</th>
+                                            <th class="ps-2">Matrix Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        @for(mat of matrixList(); track mat.id){
+                                        <tr>
+
+                                            <td class="ps-2 fw-semibold text-dark">{{mat.matrixName}}</td>
+                                            <td class="ps-2 text-muted">{{mat.description}}</td>
+                                            <td class="ps-2 text-muted">{{mat.matrixType}}</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        }
+                        @case ('priorities') {
+                        <div class="fade-in">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                <h5 class="text-primary mb-0">Priority Configuration</h5>
+                            </div>
+
+                            <div class="row justify-content-center mb-4">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Priority :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Text :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Price Multiplier :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">TAT :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-6">
+                                            <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                ADD
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive shadow-sm rounded border">
+                                <table class="table table-sm table-bordered mb-0 align-middle table-lims">
+                                    <thead class="text-dark fw-bold small">
+                                        <tr>
+                                            <th class="ps-2">Priority</th>
+                                            <th class="ps-2">Text</th>
+                                            <th class="ps-2">Price Multiplier</th>
+                                            <th class="ps-2">TAT</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        @for(priority of priorityList(); track priority.id){
+                                        <tr>
+                                            <!-- <td class="ps-2 fw-semibold text-dark">{{priority.id}}</td> -->
+
+                                            <td class="ps-2 fw-semibold text-dark">{{priority.priority}}</td>
+                                            <td class="ps-2 text-muted">{{priority.text}}</td>
+                                            <td class="ps-2 text-muted">{{priority.priceMultiplier}}</td>
+                                            <td class="ps-2 text-muted">{{priority.TAT}}</td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        }
+                        @case ('departments') {
+                        <div class="fade-in">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                                <h5 class="text-primary mb-0">Department Configuration</h5>
+                            </div>
+
+                            <div class="row justify-content-center mb-4">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Department :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-2">
+                                        <label class="col-4 text-end fw-bold small">Description :</label>
+                                        <div class="col-6">
+                                            <input type="text"
+                                                class="form-control form-control-sm border-secondary-subtle">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-6">
+                                            <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                ADD
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="table-responsive shadow-sm rounded border">
+                                <table class="table table-sm table-bordered mb-0 align-middle table-lims">
+                                    <thead class="text-dark fw-bold small">
+                                        <tr>
+                                            <th class="ps-2">Department</th>
+                                            <th class="ps-2">Description</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="small">
+                                        @for(dept of departmentlist(); track dept.id){
+                                        <tr>
+                                            <!-- <td class="ps-2 fw-semibold text-dark">{{priority.id}}</td> -->
+
+                                            <td class="ps-2 fw-semibold text-dark">{{dept.deparment}}</td>
+                                            <td class="ps-2 text-muted">{{dept.description}}</td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        }
+                        @case ('new-test') {
+                        <div class="fade-in">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-4">
+                                <h5 class="text-primary mb-0">Test Master Configuration</h5>
+                                <span class="badge bg-secondary-subtle text-secondary border small">Admin :: New
+                                    Test</span>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-8">
+
+                                    <div class="d-flex justify-content-center gap-4 mb-4 small fw-bold">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input border-secondary" type="radio" name="mode"
+                                                id="addMode" value="add" [checked]="newTestMode() === 'add'"
+                                                (change)="newTestMode.set('add')">
+                                            <label class="form-check-label" for="addMode">Add</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input border-secondary" type="radio" name="mode"
+                                                id="deleteMode" value="delete" [checked]="newTestMode() === 'delete'"
+                                                (change)="newTestMode.set('delete')">
+                                            <label class="form-check-label" for="deleteMode">Delete</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input border-secondary" type="radio" name="mode"
+                                                id="checkMode" value="check" [checked]="newTestMode() === 'check'"
+                                                (change)="newTestMode.set('check')">
+                                            <label class="form-check-label" for="checkMode">Check New Test</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+
+                                            <div class="row align-items-center mb-2">
+                                                <label class="col-4 text-end fw-bold small">Matrix :</label>
+                                                <div class="col-8">
+                                                    <select
+                                                        class="form-select form-select-sm border-secondary-subtle fw-semibold">
+                                                        <option value="">---SELECT---</option>
+                                                        @for(opt of matrixOptions(); track opt) {
+                                                        <option [value]="opt">{{opt}}</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row align-items-center mb-2">
+                                                <label class="col-4 text-end fw-bold small">Test :</label>
+                                                <div class="col-8">
+                                                    <input type="text"
+                                                        class="form-control form-control-sm border-secondary-subtle">
+                                                </div>
+                                            </div>
+
+                                            <div class="row align-items-center mb-3">
+                                                <label class="col-4 text-end fw-bold small">Group :</label>
+                                                <div class="col-8">
+                                                    <div class="d-flex gap-3 small">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input border-secondary"
+                                                                type="radio" name="group" id="groupYes" value="yes"
+                                                                (change)="isGroupTest.set('yes')">
+                                                            <label class="form-check-label" for="groupYes">Yes</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input border-secondary"
+                                                                type="radio" name="group" id="groupNo" value="no"
+                                                                [checked]="isGroupTest() === 'no'"
+                                                                (change)="isGroupTest.set('no')">
+                                                            <label class="form-check-label" for="groupNo">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-4"></div>
+                                                <div class="col-8">
+                                                    <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                        ADD
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                        @default {
+                        <div class="text-center py-5 text-muted">
+                            Select a category from the left to view details.
+                        </div>
+                        }
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

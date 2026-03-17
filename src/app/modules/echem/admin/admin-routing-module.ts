@@ -5,6 +5,7 @@ import { RoleList } from './role-list/role-list';
 import { RoleMaster } from './role-master/role-master';
 import { NavMaster } from './nav-master/nav-master';
 import { Search } from './search/search';
+import { AddData } from './add-data/add-data';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'RoleMaster', component: RoleMaster, data: { title: 'Role Master' } },
   { path: 'nav-master', component: NavMaster, data: { title: 'Nav Master' } },
   { path: 'search', component: Search, data: { title: 'search' } },
+  { path: 'addData', component: AddData, data: { title: 'addData' } },
+
 
   {
     path: 'sample-master',
