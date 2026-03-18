@@ -23,9 +23,13 @@
                                 Param CAS#
                             </button>
 
-                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                            <!-- <button type="button" class="list-group-item list-group-item-action fw-bold small"
                                 [class.active]="activeBlock() === 'test-group'" (click)="selectBlock('test-group')">
                                 Tests
+                            </button> -->
+                            <button type="button" class="list-group-item list-group-item-action fw-bold small"
+                                [class.active]="activeBlock() === 'test-group'" (click)="selectBlock('test-group')"
+                                routerLink="sample-master"> Tests
                             </button>
 
                             <button type="button" class="list-group-item list-group-item-action fw-bold small"
@@ -200,8 +204,7 @@
 
                         @case ('test-group') {
                         <div class="fade-in">
-                            <h5 class="text-primary border-bottom pb-2">Test Group Settings</h5>
-                            <p>Manage your laboratory test groups here.</p>
+                            <router-outlet></router-outlet>
                         </div>
                         }
 
@@ -504,7 +507,8 @@
                                             <div class="row">
                                                 <div class="col-4"></div>
                                                 <div class="col-8">
-                                                    <button class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
+                                                    <button
+                                                        class="btn btn-sm btn-warning px-4 fw-bold shadow-sm btn-lims-add">
                                                         ADD
                                                     </button>
                                                 </div>

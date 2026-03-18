@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, signal, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router,RouterModule,RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-add-data',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterOutlet,RouterModule],
   templateUrl: './add-data.html',
   styleUrl: './add-data.css',
 })

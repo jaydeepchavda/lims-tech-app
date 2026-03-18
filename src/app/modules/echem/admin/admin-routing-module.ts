@@ -17,15 +17,23 @@ const routes: Routes = [
   { path: 'RoleMaster', component: RoleMaster, data: { title: 'Role Master' } },
   { path: 'nav-master', component: NavMaster, data: { title: 'Nav Master' } },
   { path: 'search', component: Search, data: { title: 'search' } },
-  { path: 'addData', component: AddData, data: { title: 'addData' } },
-
-
   {
-    path: 'sample-master',
-    loadChildren: () =>
-      import('./sample-master/sample-master-module')
-        .then(m => m.SampleMasterModule)
-  }
+    path: 'addData', component: AddData, data: { title: 'addData' },
+    children:[
+      {
+        path: 'sample-master', 
+        loadChildren: () => import('../admin/sample-master/sample-master-module')
+          .then(m => m.SampleMasterModule)
+      }
+    ] },
+
+
+  // {
+  //   path: 'sample-master',
+  //   loadChildren: () =>
+  //     import('./sample-master/sample-master-module')
+  //       .then(m => m.SampleMasterModule)
+  // }
 
 ];
 
