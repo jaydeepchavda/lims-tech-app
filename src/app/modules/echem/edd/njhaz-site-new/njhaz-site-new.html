@@ -1,0 +1,116 @@
+<div class="container-fluid bg-white py-4 px-5 border shadow-sm">
+  
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-6">
+      <div class="row mb-2 align-items-center">
+        <label class="col-4 text-end fw-bold small">Enter Project :</label>
+        <div class="col-8">
+          <input type="text" [(ngModel)]="projectCode" class="form-control form-control-sm border-secondary shadow-none">
+        </div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <label class="col-4 text-end fw-bold small">QcType :</label>
+        <div class="col-8 d-flex flex-wrap gap-2 small">
+          @for (key of qcKeys; track key) {
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" [id]="key" [(ngModel)]="qcTypes()[key]">
+              <label class="form-check-label" [for]="key">{{ key | uppercase }}</label>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <label class="col-4 text-end fw-bold small">Param Type :</label>
+        <div class="col-8 d-flex gap-3 small">
+          @for (pKey of paramKeys; track pKey) {
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" [id]="'p'+pKey" [(ngModel)]="paramTypes()[pKey]">
+              <label class="form-check-label" [for]="'p'+pKey">{{ pKey | uppercase }}</label>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-8 offset-4 small text-danger fw-bold">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="convertUnit" [(ngModel)]="convertUnit">
+            <label class="form-check-label" for="convertUnit">Convert Soil Unit in mg/Kg ?</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-4 align-items-center">
+        <label class="col-4 text-end fw-bold small">Select Method :</label>
+        <div class="col-8 d-flex gap-4 small">
+          <div class="form-check"><input class="form-check-input" type="radio" name="method" value="LOD" [(ngModel)]="selectedMethod" id="lod"><label class="form-check-label" for="lod">LOD</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="method" value="LOQ" [(ngModel)]="selectedMethod" id="loq"><label class="form-check-label" for="loq">LOQ</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="method" value="MDL" [(ngModel)]="selectedMethod" id="mdl"><label class="form-check-label" for="mdl">MDL</label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-4 g-3">
+    <div class="col-auto"><button (click)="getTests()" class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get Tests</button></div>
+    <div class="col-auto"><button class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get Samples</button></div>
+  </div>
+
+  <div class="row justify-content-center align-items-center mb-5">
+    <div class="col-auto"><span class="text-primary fw-bold small">Label</span></div>
+    <div class="col-md-4">
+      <select multiple class="form-select border-secondary shadow-none" size="8">
+        @for (test of availableTests(); track test) {
+          <option [value]="test">{{ test }}</option>
+        }
+      </select>
+    </div>
+    <div class="col-auto">
+      <div class="btn-group-vertical gap-1">
+        <button class="btn btn-warning btn-sm fw-bold px-3">&gt;</button>
+        <button (click)="moveAllToSelected()" class="btn btn-warning btn-sm fw-bold px-3">&gt;&gt;</button>
+        <button class="btn btn-warning btn-sm fw-bold px-3">&lt;</button>
+        <button class="btn btn-warning btn-sm fw-bold px-3">&lt;&lt;</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <select multiple class="form-select border-secondary shadow-none" size="8">
+        @for (sel of selectedTests(); track sel) {
+          <option [value]="sel">{{ sel }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-auto"><button class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get Samples</button></div>
+  </div>
+
+  <div class="row justify-content-center align-items-center mb-5">
+    <div class="col-auto"><span class="text-primary fw-bold small">Label</span></div>
+    <div class="col-md-4">
+      <select multiple class="form-select border-secondary shadow-none" size="8">
+        <!-- <option>Sample ID 001</option>
+        <option>Sample ID 002</option> -->
+      </select>
+    </div>
+    <div class="col-auto">
+      <div class="btn-group-vertical gap-1">
+        <button class="btn btn-warning btn-sm fw-bold px-3">&gt;</button>
+        <button class="btn btn-warning btn-sm fw-bold px-3">&gt;&gt;</button>
+        <button class="btn btn-warning btn-sm fw-bold px-3">&lt;</button>
+        <button class="btn btn-warning btn-sm fw-bold px-3">&lt;&lt;</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <select multiple class="form-select border-secondary shadow-none" size="8"></select>
+    </div>
+  </div>
+
+  <div class="row justify-content-center border-top pt-4">
+    <div class="col-auto"><button class="btn btn-outline-dark btn-sm fw-bold px-5">Generate File</button></div>
+  </div>
+
+</div>

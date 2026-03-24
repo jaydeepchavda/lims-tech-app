@@ -1,0 +1,63 @@
+import { CommonModule } from '@angular/common';
+import { Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+export interface IQcTypes {
+  sam: boolean;
+  ms: boolean;
+  msd: boolean;
+  lcs: boolean;
+  lcsd: boolean;
+  mb: boolean;
+  dup: boolean;
+}
+@Component({
+  selector: 'app-njhaz-site-new',
+  imports: [FormsModule,CommonModule],
+  templateUrl: './njhaz-site-new.html',
+  styleUrl: './njhaz-site-new.css',
+})
+export class NJHazSiteNew {
+  projectCode = signal<string>('');
+  
+  // Using Record<string, boolean> allows dynamic indexing in the template
+  qcTypes = signal<Record<string, boolean>>({
+    sam: false, ms: false, msd: false, lcs: false, 
+    lcsd: false, mb: false, dup: false
+  });
+
+  // Array for the @for loop
+  qcKeys = ['sam', 'ms', 'msd', 'lcs', 'lcsd', 'mb', 'dup'];
+
+  paramTypes = signal<Record<string, boolean>>({
+    trg: true, surr: false, istd: false, tic: false
+  });
+  paramKeys = ['trg', 'surr', 'istd', 'tic'];
+
+  convertUnit = signal<boolean>(false);
+  selectedMethod = signal<string>('LOD');
+
+  availableTests = signal<string[]>([]);
+  selectedTests = signal<string[]>([]);
+
+  getTests() {
+    if (!this.projectCode().trim()) {
+      alert('Please enter Project!');
+      return;
+    }
+
+    console.log('Project:', this.projectCode());
+    console.log('QC Types:', this.qcTypes());
+    console.log('Params:', this.paramTypes());
+    console.log('Method:', this.selectedMethod());
+    console.log('Convert Unit:', this.convertUnit());
+
+    // Populate the first box
+    this.availableTests.set(['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6', 'Test 7', 'Test 8', 'Test 9', 'Test 10', 'Test 11', 'Test 12', 'Test 13']);
+  }
+
+  moveAllToSelected() {
+    this.selectedTests.set([...this.selectedTests(), ...this.availableTests()]);
+    this.availableTests.set([]);
+  }
+}

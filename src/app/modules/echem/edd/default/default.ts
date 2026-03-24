@@ -94,7 +94,7 @@ export class Default {
       { label: 'LEA EDD', link: 'lea-edd' },
       { label: 'MWH EDD', link: 'mwh-edd' },
       { label: 'NJ Hazsite', link: 'nj-hazsite' },
-      { label: 'NJ HazSite New', link: 'nj-hazsite-new' },
+      { label: 'NJ HazSite New', link: 'NJHazSiteNew' },
       { label: 'NYSDEC EDD', link: 'nysdec-edd' },
       { label: 'NYSDEC EDD With TestResultQc', link: 'nysdec-edd-qc' },
       { label: 'NYSDEC EDD V-3', link: 'nysdec-edd-v3' },
