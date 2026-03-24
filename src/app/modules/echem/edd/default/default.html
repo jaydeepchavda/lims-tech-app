@@ -1,0 +1,86 @@
+<div class="container-fluid mt-4 vh-100">
+    <div class="row">
+         <div class="col-2">
+            <div class="my-1 px-1 py-1 border fw-semibold rounded text-center bg-secondary bg-opacity-25">
+                Edd :: {{ currentPageTitle }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-xl-11 mt-2">
+            <div class="accordion accordion-flush shadow-sm border rounded" id="eddAccordion">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fw-bold text-primary bg-outline-primary bg-opacity-10 py-2 small" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#colReport">
+                            <i class="bi bi-file-earmark-text me-2"></i> REPORTS
+                        </button>
+                    </h2>
+                    <div id="colReport" class="accordion-collapse collapse show" data-bs-parent="#eddAccordion">
+                        <div class="accordion-body bg-light p-2">
+                            <div class="row g-1">
+                                @for (item of eddMenu.report; track item.label) {
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                                    <a [routerLink]="item.link"
+                                        class="btn btn-white border w-100 text-start shadow-sm btn-sm py-1 small link-hover">
+                                        {{ item.label }}
+                                    </a>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold text-success bg-outline-success bg-opacity-10 py-2 small"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#colSedd">
+                            <i class="bi bi-database-fill-gear me-2"></i> SEDD EDD
+                        </button>
+                    </h2>
+                    <div id="colSedd" class="accordion-collapse collapse" data-bs-parent="#eddAccordion">
+                        <div class="accordion-body bg-light p-2">
+                            <div class="row g-1">
+                                @for (item of eddMenu.sedd; track item.label) {
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                                    <a [routerLink]="['/lims/echem/CHEMEDD', item.link]"
+                                        class="btn btn-white border w-100 text-start shadow-sm btn-sm py-1 small link-hover">
+                                        {{ item.label }}
+                                    </a>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold text-info bg-outline-info bg-opacity-10 py-2 small" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#colNet">
+                            <i class="bi bi-braces-asterisk me-2"></i> .NET EDD
+                        </button>
+                    </h2>
+                    <div id="colNet" class="accordion-collapse collapse" data-bs-parent="#eddAccordion">
+                        <div class="accordion-body bg-light p-2">
+                            <div class="row g-1">
+                                @for (item of eddMenu.net; track item.label) {
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                                    <a [routerLink]="item.link"
+                                        class="btn btn-white border w-100 text-start shadow-sm btn-sm py-1 small link-hover">
+                                        {{ item.label }}
+                                    </a>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
