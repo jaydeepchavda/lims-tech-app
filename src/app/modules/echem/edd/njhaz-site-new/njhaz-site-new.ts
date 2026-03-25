@@ -72,4 +72,5 @@ export class NJHazSiteNew {
        this.selectedTests.set([]);
     }
   }
+  // this change is made from feature edd B to see merge conflict problem solutions 
 }
