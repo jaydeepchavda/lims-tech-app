@@ -73,4 +73,5 @@ export class NJHazSiteNew {
     }
   }
   //this code added for branch merge conflict check ok
+  // this change is made from feature edd B to see merge conflict problem solutions 
 }
