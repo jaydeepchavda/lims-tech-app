@@ -55,7 +55,7 @@
 
   <div class="row justify-content-center mb-4 g-3">
     <div class="col-auto"><button (click)="getTests()" class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get Tests</button></div>
-    <div class="col-auto"><button class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get Samples</button></div>
+    <div class="col-auto"><button (click)="getSamples()" class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get Samples</button></div>
   </div>
 
   <div class="row justify-content-center align-items-center mb-5">
@@ -65,14 +65,17 @@
         @for (test of availableTests(); track test) {
           <option [value]="test">{{ test }}</option>
         }
+        @for(sample of availableSamples(); track sample){
+          <option [value]="sample"> {{sample}}</option>
+        }
       </select>
     </div>
     <div class="col-auto">
       <div class="btn-group-vertical gap-1">
         <button class="btn btn-warning btn-sm fw-bold px-3">&gt;</button>
-        <button (click)="moveAllToSelected()" class="btn btn-warning btn-sm fw-bold px-3">&gt;&gt;</button>
+        <button (click)="moveAllToSelectedRight()" class="btn btn-warning btn-sm fw-bold px-3">&gt;&gt;</button>
         <button class="btn btn-warning btn-sm fw-bold px-3">&lt;</button>
-        <button class="btn btn-warning btn-sm fw-bold px-3">&lt;&lt;</button>
+        <button (click)="moveAllToSelectedLeft()" class="btn btn-warning btn-sm fw-bold px-3">&lt;&lt;</button>
       </div>
     </div>
     <div class="col-md-4">

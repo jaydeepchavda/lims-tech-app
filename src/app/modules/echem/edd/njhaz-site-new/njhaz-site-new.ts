@@ -39,25 +39,49 @@ export class NJHazSiteNew {
 
   availableTests = signal<string[]>([]);
   selectedTests = signal<string[]>([]);
+  availableSamples = signal<string[]>([]);
 
   getTests() {
     if (!this.projectCode().trim()) {
       alert('Please enter Project!');
       return;
     }
-
-    console.log('Project:', this.projectCode());
-    console.log('QC Types:', this.qcTypes());
-    console.log('Params:', this.paramTypes());
-    console.log('Method:', this.selectedMethod());
-    console.log('Convert Unit:', this.convertUnit());
-
-    // Populate the first box
-    this.availableTests.set(['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6', 'Test 7', 'Test 8', 'Test 9', 'Test 10', 'Test 11', 'Test 12', 'Test 13']);
+    // Clear samples when getting tests to avoid mixing in the same box
+    this.availableSamples.set([]); 
+    this.availableTests.set(['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5']);
   }
 
-  moveAllToSelected() {
-    this.selectedTests.set([...this.selectedTests(), ...this.availableTests()]);
+  getSamples() {
+    if (!this.projectCode().trim()) {
+      alert('Please enter Project Number!!');
+      return;
+    }
+    // Clear tests when getting samples
     this.availableTests.set([]);
+    this.availableSamples.set(['Sample 1', 'Sample 2', 'Sample 3', 'Sample 4']);
+  }
+
+  moveAllToSelectedRight() {
+    // Check if there are tests to move
+    if (this.availableTests().length > 0) {
+      this.selectedTests.set([...this.selectedTests(), ...this.availableTests()]);
+      this.availableTests.set([]);
+    } 
+    // Check if there are samples to move
+    else if (this.availableSamples().length > 0) {
+      this.selectedTests.set([...this.selectedTests(), ...this.availableSamples()]);
+      this.availableSamples.set([]);
+    }
+  }
+
+  moveAllToSelectedLeft() {
+    // If the selected list has items, we need to know if they were tests or samples 
+    // to put them back in the correct "available" signal.
+    // For simplicity, we check which action was last performed or just check if we are in "test mode"
+    if (this.selectedTests().length > 0) {
+       // If you want to put them back where they came from:
+       this.availableTests.set([...this.availableTests(), ...this.selectedTests()]);
+       this.selectedTests.set([]);
+    }
   }
 }
