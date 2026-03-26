@@ -48,7 +48,7 @@ export class Default {
       { label: 'ADR Method Edit', link: 'adr-method-edit' },
       { label: 'Air conversation Table', link: 'air-conv-table' },
       { label: 'Air Conversation Table Crystal', link: 'air-conv-crystal' },
-      { label: 'ADR EDD', link: 'adr-edd' },
+      { label: 'ADR EDD', link: 'ADRdefault' },
       { label: 'ADR SQL EDD', link: 'adr-sql-edd' },
       { label: 'ADR LIBRARY', link: 'adr-library' },
       { label: 'Arcadisedd', link: 'Arcadis' },

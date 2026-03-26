@@ -1,0 +1,62 @@
+<div class="container-fluid bg-white py-5 px-5 border shadow-sm mt-3" style="min-height: 400px;">
+
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-2 text-end">
+            <label class="fw-bold small">Enter Project :</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" [(ngModel)]="projectCode"
+                class="form-control form-control-sm border-secondary shadow-none rounded-0">
+        </div>
+    </div>
+
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-2 text-end">
+            <label class="fw-bold small">Select System :</label>
+        </div>
+        <div class="col-md-8 d-flex gap-3 small">
+            <div class="form-check">
+                <input class="form-check-input border-secondary" type="checkbox" id="metals">
+                <label class="form-check-label" for="metals">Metals</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input border-secondary" type="checkbox" id="semiVoa">
+                <label class="form-check-label" for="semiVoa">Semi-Voa</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input border-secondary" type="checkbox" id="voa">
+                <label class="form-check-label" for="voa">Voa</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input border-secondary" type="checkbox" id="pesticides">
+                <label class="form-check-label" for="pesticides">Pesticides</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input border-secondary" type="checkbox" id="genChem">
+                <label class="form-check-label" for="genChem">GenChem</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-2 offset-md-2">
+            <!-- <button (click)="getTests()" class="btn btn-sm btn-light border-dark fw-semibold px-3 rounded-0 shadow-sm" style="background-color: #f0ead6;">
+        Get Test
+      </button> -->
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-2 text-end">
+            <label class="fw-bold small">Select Test :</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 offset-md-1">
+            <button class="btn btn-outline-dark btn-sm fw-bold px-5">Generate File</button>
+
+        </div>
+    </div>
+
+</div>

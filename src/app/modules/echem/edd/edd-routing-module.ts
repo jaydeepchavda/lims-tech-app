@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Default } from './default/default';
 import { Arcadis } from './arcadis/arcadis';
 import { NJHazSiteNew } from './njhaz-site-new/njhaz-site-new';
+import { ADRDefault } from './adrdefault/adrdefault';
 
 const routes: Routes = [
     { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -12,7 +13,7 @@ const routes: Routes = [
       },
       {path:'Arcadis', component: Arcadis } ,
       {path:'NJHazSiteNew', component: NJHazSiteNew } ,
-
+      {path: "ADRdefault",component: ADRDefault}
 ];
 
 @NgModule({
