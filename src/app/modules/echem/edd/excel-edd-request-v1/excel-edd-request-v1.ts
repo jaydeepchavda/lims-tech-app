@@ -4,32 +4,51 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-excel-edd-request-v1',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './excel-edd-request-v1.html',
   styleUrl: './excel-edd-request-v1.css',
 })
-export class ExcelEddRequestV1 { 
-   customerIds = signal<string[]>(['CUST-001', 'CUST-002', 'CUST-003']);
-  projects = signal<string[]>(['LimsArch', 'HazSite-New', 'Project-Delta']);
-  orderIds = signal<string[]>(['ORD-9901', 'ORD-9902', 'ORD-9903']);
+export class ExcelEddRequestV1 {
+  isExcelEddDataShow = signal<boolean>(false)
 
-  // Selected Values
+  customerIds = signal<string[]>(['100G01', '101F01', '3DEN01']);
+  projects = signal<string[]>(['36182', '36496', '36794']);
+  orderId = signal<string>('')
   selectedCustomerId = '';
   selectedProject = '';
   selectedOrderId = '';
 
+  // goToNext() {
+  //   if (!this.selectedCustomerId) {
+  //     alert('Please select a Customer ID');
+  //     return;
+  //   }
+  //   console.log('Navigating with:', {
+  //     customer: this.selectedCustomerId,
+  //     project: this.selectedProject,
+  //     order: this.selectedOrderId
+  //   });
+  //   this.isExcelEddDataShow.set(true)
+  // }
+  // Add these to your class properties
+  // isExcelEddDataShow = signal<boolean>(false);
+  projectCode = signal<string>('');
+  systems = ['Metals', 'Semi-VOA', 'VOA', 'Pesticides', 'GenChem'];
+  selectedSystems = signal<Record<string, boolean>>({
+    'Metals': false, 'Semi-VOA': false, 'VOA': false, 'Pesticides': false, 'GenChem': false
+  });
+
+  // Update your goToNext to toggle the view
   goToNext() {
-    // Basic logic to ensure at least one path is selected
-    if (!this.selectedCustomerId) {
-      alert('Please select a Customer ID');
-      return;
+    if (this.selectedCustomerId || this.selectedOrderId) {
+      this.isExcelEddDataShow.set(true);
+    } else {
+      alert('Please select a Customer or enter Order ID');
     }
-    
-    console.log('Navigating with:', {
-      customer: this.selectedCustomerId,
-      project: this.selectedProject,
-      order: this.selectedOrderId
-    });
+  }
+
+  getTests() {
+    console.log('Fetching tests for:', this.projectCode());
   }
 
 }

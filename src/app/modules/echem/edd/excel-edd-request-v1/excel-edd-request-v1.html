@@ -1,63 +1,120 @@
 <div class="container-fluid bg-white py-4 px-5 border border-dark rounded-2 shadow-sm">
-  <div class="row justify-content-center pt-5 border-1 rounded ">
-    <div class="col-md-8 col-lg-6">
-      
-      <div class="row mb-3 align-items-center">
-        <label class="col-sm-4 text-end fw-bold small pe-4">Select Customer ID :</label>
-        <div class="col-sm-6">
-          <select [(ngModel)]="selectedCustomerId" 
-                  class="form-select form-select-sm border-secondary shadow-none rounded-0">
-            <option value="" disabled selected>--Select--</option>
-            @for (id of customerIds(); track id) {
-              <option [value]="id">{{ id }}</option>
-            }
-          </select>
-        </div>
-      </div>
+    @if (!isExcelEddDataShow()) {
+    <div class="row justify-content-center pt-5 border-1 rounded ">
+        <div class="col-md-8 col-lg-6">
 
-      <div class="row mb-2 align-items-center">
-        <label class="col-sm-4 text-end fw-bold small pe-4">Select Projects :</label>
-        <div class="col-sm-6">
-          <select [(ngModel)]="selectedProject" 
-                  class="form-select form-select-sm border-secondary shadow-none rounded-0">
-            <option value="" disabled selected>--Select--</option>
-            @for (proj of projects(); track proj) {
-              <option [value]="proj">{{ proj }}</option>
-            }
-          </select>
-        </div>
-      </div>
+            <div class="row mb-3 align-items-center">
+                <label class="col-sm-4 text-end fw-bold small pe-4">Select Customer ID :</label>
+                <div class="col-sm-6">
+                    <select [(ngModel)]="selectedCustomerId"
+                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                        <option value="" disabled selected>--Select--</option>
+                        @for (id of customerIds(); track id) {
+                        <option [value]="id">{{ id }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
 
-      <div class="row mb-2">
-        <div class="col-sm-6 offset-sm-4 text-center">
-          <span class="text-danger fw-bold small">OR</span>
-        </div>
-      </div>
+            <div class="row mb-2 align-items-center">
+                <label class="col-sm-4 text-end fw-bold small pe-4">Select Projects :</label>
+                <div class="col-sm-6">
+                    <select [(ngModel)]="selectedProject"
+                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                        <option value="" disabled selected>--Select--</option>
+                        @for (proj of projects(); track proj) {
+                        <option [value]="proj">{{ proj }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
 
-      <div class="row mb-4 align-items-center">
-        <label class="col-sm-4 text-end fw-bold small pe-4">Select Order ID :</label>
-        <div class="col-sm-6">
-          <select [(ngModel)]="selectedOrderId" 
-                  class="form-select form-select-sm border-secondary shadow-none rounded-0">
-            <option value="" disabled selected>--Select--</option>
-            @for (order of orderIds(); track order) {
-              <option [value]="order">{{ order }}</option>
-            }
-          </select>
-        </div>
-      </div>
+            <div class="row mb-2">
+                <div class="col-sm-6 offset-sm-4 text-center">
+                    <span class="text-danger fw-bold small">OR</span>
+                </div>
+            </div>
 
-      <div class="row mt-4">
-        <div class="col-sm-6 offset-sm-4 text-end">
-          <button (click)="goToNext()" 
-                  class="btn btn-sm border-dark rounded-0 px-4 fw-bold shadow-sm"
-                  style="background-color: #efefef; font-size: 13px;">
-            Next &gt;&gt;
-          </button>
-        </div>
-      </div>
+            <div class="row mb-4 align-items-center">
+                <label class="col-sm-4 text-end fw-bold small pe-4">Order ID :</label>
+                <div class="col-sm-6">
+                    <input type="text" [(ngModel)]="selectedOrderId"
+                        class="form-control form-control-sm border-secondary shadow-none rounded-0" id="orderId">
+                </div>
+            </div>
 
+            <div class="row mt-4">
+                <div class="col-sm-6 offset-sm-4 text-end">
+                    <button (click)="goToNext()"
+                        class="btn btn-sm btn-warning border-dark rounded-1 px-4 fw-bold shadow-sm">
+                        Next &gt;&gt;
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
+    }
+    @else {
+    <div class="row pt-4">
+        <div class="col-md-10 mx-auto">
+
+            <div class="row mb-4">
+                <div class="col-auto">
+                    <button (click)="isExcelEddDataShow.set(false)"
+                        class="btn btn-sm btn-outline-dark rounded-0 fw-bold px-3">
+                        &lt;&lt; Back
+                    </button>
+                </div>
+            </div>
+
+            <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 text-end fw-bold small pe-4">Enter Project :</label>
+                <div class="col-sm-3">
+                    <input type="text" [(ngModel)]="projectCode"
+                        class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                </div>
+            </div>
+
+            <div class="row mb-3 align-items-center">
+                <label class="col-sm-3 text-end fw-bold small pe-4">Select System :</label>
+                <div class="col-sm-9">
+                    <div class="d-flex flex-wrap gap-4 small">
+                        @for (sys of systems; track sys) {
+                        <div class="form-check p-0 d-flex align-items-center gap-1">
+                            <input class="form-check-input m-0 rounded-0 border-secondary" type="checkbox" [id]="sys"
+                                [(ngModel)]="selectedSystems()[sys]">
+                            <label class="form-check-label fw-semibold ms-1" [for]="sys">{{ sys }}</label>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-sm-3 offset-sm-3">
+                    <button (click)="getTests()" class="btn btn-sm border-dark rounded-0 px-4 fw-bold shadow-sm">
+                        Get Test
+                    </button>
+                </div>
+            </div>
+
+            <div class="row mb-5 align-items-center">
+                <label class="col-sm-3 text-end fw-bold small pe-4">Select Test :</label>
+                <div class="col-sm-6">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-sm-3 offset-sm-2">
+                    <button class="btn btn-sm border-dark rounded-0 px-4 fw-bold shadow-sm">
+                        Generate File
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    }
 
 </div>
