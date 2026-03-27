@@ -7,24 +7,78 @@
 
     <div class="container py-5">
       <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10">
+        <div class="col-lg-10">
           
-          <div class="row mb-4 align-items-center">
-            <label class="col-sm-3 small fw-semibold text-end">Order ID :</label>
+          <div class="row mb-4 align-items-center justify-content-center border-bottom pb-4">
+            <label class="col-sm-2 small fw-semibold text-end">Order ID :</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control form-control-sm border-dark-subtle shadow-sm" value="R1626">
+              <input type="text" [(ngModel)]="orderId" class="form-control form-control-sm border-dark-subtle shadow-sm">
             </div>
             <div class="col-sm-5 d-flex gap-2">
-              <button class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
+              <button (click)="getSamples()" class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
                 Get Samples
               </button>
-              <button class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
+              <button (click)="getTests()" class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
                 Get Test
               </button>
             </div>
           </div>
 
-          <hr class="my-5 opacity-25">
+          @if(isSampleOrTestAvailable()){
+            <div class="animate-fade-in">
+              
+              <div class="row justify-content-center align-items-center mb-5">
+                <div class="col-auto"><span class="text-primary fw-bold small" style="width: 70px; display: inline-block;">Samples: </span></div>
+                <div class="col-md-4">
+                  <select multiple class="form-select border-secondary shadow-none" size="8">
+                    @for (item of availableList(); track item) {
+                      <option [value]="item">{{ item }}</option>
+                    }
+                  </select>
+                </div>
+                <div class="col-auto">
+                  <div class="btn-group-vertical gap-1">
+                    <button class="btn btn-warning btn-sm fw-bold px-3">></button>
+                    <button (click)="moveAllToSelectedRight()" class="btn btn-warning btn-sm fw-bold px-3">>></button>
+                    <button class="btn btn-warning btn-sm fw-bold px-3"><</button>
+                    <button (click)="moveAllToSelectedLeft()" class="btn btn-warning btn-sm fw-bold px-3"><<</button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <select multiple class="form-select border-secondary shadow-none" size="8">
+                    @for (sel of selectedItems(); track sel) {
+                      <option [value]="sel">{{ sel }}</option>
+                    }
+                  </select>
+                </div>
+              </div>
+              <div class="getTestButton-content text-center mb-4">
+                <button (click)="getTestsSecond()" class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
+                Get Test
+              </button>
+              </div>
+              <div class="row justify-content-center align-items-center mb-5 border-top pt-5">
+                <div class="col-auto"><span class="text-primary fw-bold small" style="width: 70px; display: inline-block;">Tests: </span></div>
+                <div class="col-md-4">
+                  <select multiple class="form-select border-dark " size="8" >
+                    <option></option>
+                  </select>
+                </div>
+                <div class="col-auto">
+                  <div class="btn-group-vertical gap-1">
+                    <button class="btn btn-warning btn-sm fw-bold px-3" >></button>
+                    <button class="btn btn-warning btn-sm fw-bold px-3" >>></button>
+                    <button class="btn btn-warning btn-sm fw-bold px-3" ><</button>
+                    <button class="btn btn-warning btn-sm fw-bold px-3" ><<</button>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <select multiple class="form-select border-secondary shadow-none " size="8" ></select>
+                </div>
+              </div>
+
+            </div>
+          }
 
           <div class="row justify-content-center mb-5">
             <div class="col-md-9">
