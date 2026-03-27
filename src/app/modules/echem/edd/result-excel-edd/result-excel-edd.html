@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="ui-card p-4">
+    
+    <div class="d-flex align-items-center justify-content-center mb-4">
+      <label for="orderId" class="me-2 fw-normal">Order ID :</label>
+      <input type="text" id="orderId" class="form-control form-control-sm custom-input me-3" value="R1626">
+      
+      <button class="btn btn-custom me-2">Get Samples</button>
+      <button class="btn btn-custom">Get Test</button>
+    </div>
+
+    <div class="row justify-content-center mb-2">
+      <div class="col-auto">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="tclpSuffix">
+          <label class="form-check-label ms-1" for="tclpSuffix">
+            TCLP Suffix ?
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-auto d-flex gap-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="reportType" id="rl">
+          <label class="form-check-label" for="rl">RL</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="reportType" id="mdl">
+          <label class="form-check-label" for="mdl">MDL</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="reportType" id="asReported" checked>
+          <label class="form-check-label" for="asReported">AS Reported</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-custom me-2">Generate EDD</button>
+      <button class="btn btn-custom">Check</button>
+    </div>
+
+  </div>
+</div>

@@ -56,7 +56,7 @@ export class Default {
       { label: 'BEM(.dbf Format)EDD', link: 'bem-dbf-edd' },
       { label: 'BROWN Coldwell EDD', link: 'brown-coldwell-edd' },
       { label: 'CH2M-HILL', link: 'ch2m-hill' },
-      { label: 'CH2M-HILL FEB 11 Revision', link: 'ch2m-hill-feb11' },
+      { label: 'CH2M-HILL FEB 11 Revision', link: 'ResultExcelEDDFeb2011' },
       { label: 'CH2M-HILL Utility', link: 'ch2m-hill-util' },
       { label: 'CH2M-HILL SNEDD', link: 'ch2m-hill-snedd' },
       { label: 'CH2M-HILL SNEDD Utility', link: 'ch2m-hill-snedd-util' },

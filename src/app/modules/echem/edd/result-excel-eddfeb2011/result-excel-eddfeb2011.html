@@ -1,0 +1,70 @@
+<div class="container-fluid p-0">
+  <div class="border rounded-0 bg-white shadow-sm min-vh-100">
+    
+    <div class="border-bottom p-3 bg-light">
+      <h5 class="text-primary fw-bold mb-0">CH2M-HILL EDD</h5>
+    </div>
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          
+          <div class="row mb-4 align-items-center">
+            <label class="col-sm-3 small fw-semibold text-end">Order ID :</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control form-control-sm border-dark-subtle shadow-sm" value="R1626">
+            </div>
+            <div class="col-sm-5 d-flex gap-2">
+              <button class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
+                Get Samples
+              </button>
+              <button class="btn btn-warning btn-sm px-4 fw-bold border-dark-subtle shadow-sm text-uppercase">
+                Get Test
+              </button>
+            </div>
+          </div>
+
+          <hr class="my-5 opacity-25">
+
+          <div class="row justify-content-center mb-5">
+            <div class="col-md-9">
+              <div class="form-check mb-4 ps-5">
+                <input class="form-check-input border-dark-subtle shadow-sm" type="checkbox" id="tclpSuffix">
+                <label class="form-check-label small fw-semibold ms-2" for="tclpSuffix">
+                  TCLP Suffix ?
+                </label>
+              </div>
+
+              <div class="p-4 bg-light border rounded-3 shadow-sm">
+                <div class="d-flex gap-5 justify-content-center">
+                  <div class="form-check">
+                    <input class="form-check-input border-dark-subtle" type="radio" name="rep" id="rl">
+                    <label class="form-check-label small fw-semibold" for="rl">RL</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input border-dark-subtle" type="radio" name="rep" id="mdl">
+                    <label class="form-check-label small fw-semibold" for="mdl">MDL</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input border-dark-subtle" type="radio" name="rep" id="as" checked>
+                    <label class="form-check-label small fw-semibold" for="as">AS Reported</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 pt-4 border-top">
+            <button class="btn btn-warning btn-sm px-5 py-2 fw-bold border-dark-subtle shadow-sm text-uppercase">
+              Generate EDD
+            </button>
+            <button class="btn btn-warning btn-sm px-5 py-2 fw-bold border-dark-subtle shadow-sm text-uppercase">
+              Check
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
