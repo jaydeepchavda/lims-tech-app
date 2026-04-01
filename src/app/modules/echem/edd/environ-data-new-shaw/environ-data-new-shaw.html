@@ -1,0 +1,157 @@
+<div class="container-fluid p-0 bg-white">
+    <div class="border-bottom p-3 bg-light shadow-sm">
+        <h5 class="text-primary fw-bold mb-0">SAIC EDD</h5>
+    </div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="text-center mb-4">
+                    <a routerLink="/EnvironDataNewSHAW"
+                        class="fw-semibold link-primary text-decoration-none border-bottom border-primary pb-1 small">
+                        Update RPD For Gases
+                    </a>
+                </div>
+
+                <div class="border rounded p-4 bg-white shadow-sm">
+
+                    <div class="row mb-4 align-items-center justify-content-center">
+                        <label class="col-md-2 small fw-bold text-end">Project ID :</label>
+                        <div class="col-md-4">
+                            <input type="text" [(ngModel)]="projectCode"
+                                class="form-control form-control-sm border-dark-subtle shadow-sm"
+                                placeholder="Enter ID...">
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+
+                    <hr class="my-4 opacity-25">
+
+                    <div class="row mb-3 align-items-center justify-content-center">
+                        <label class="col-md-2 text-end fw-bold small">QcType :</label>
+                        <div class="col-md-8 d-flex flex-wrap gap-3 small">
+                            @for (key of qcKeys; track key) {
+                            <div class="form-check">
+                                <input class="form-check-input border-secondary" type="checkbox" [id]="key"
+                                    [(ngModel)]="qcTypes()[key]">
+                                <label class="form-check-label fw-semibold" [for]="key">{{ key }}</label>
+                            </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 align-items-center justify-content-center">
+                        <label class="col-md-2 text-end fw-bold small">Select Method :</label>
+                        <div class="col-md-8 d-flex gap-4 small">
+                            <div class="form-check">
+                                <input class="form-check-input border-secondary" type="radio" name="method" value="LOD"
+                                    [(ngModel)]="selectedMethod" id="lod">
+                                <label class="form-check-label fw-semibold" for="lod">LOD</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input border-secondary" type="radio" name="method" value="LOQ"
+                                    [(ngModel)]="selectedMethod" id="loq">
+                                <label class="form-check-label fw-semibold" for="loq">LOQ</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input border-secondary" type="radio" name="method" value="MDL"
+                                    [(ngModel)]="selectedMethod" id="mdl">
+                                <label class="form-check-label fw-semibold" for="mdl">MDL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-8 offset-md-2 small text-danger fw-bold ps-4">
+                            <div class="form-check">
+                                <input class="form-check-input border-danger" type="checkbox" id="convertUnit"
+                                    [(ngModel)]="tcisMeed">
+                                <label class="form-check-label" for="convertUnit">Need TICs ?</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center g-3 pt-3 pb-4 ">
+                        <div class="col-auto">
+                            <button (click)="getTests()"
+                                class="btn btn-warning fw-bold px-4 btn-sm shadow-sm border-dark-subtle">
+                                Get Tests
+                            </button>
+                        </div>
+                        <div class="col-auto">
+                            <button (click)="getSamples()"
+                                class="btn btn-warning fw-bold px-4 btn-sm shadow-sm border-dark-subtle">
+                                Get Samples
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div class="row justify-content-center align-items-center mb-5">
+                        <div class="col-auto"><span class="text-primary fw-bold small">Label</span></div>
+                        <div class="col-md-4">
+                            <select multiple class="form-select border-secondary shadow-none" size="8">
+                                @for (test of availableTests(); track test) {
+                                <option [value]="test">{{ test }}</option>
+                                }
+                                @for(sample of availableSamples(); track sample){
+                                <option [value]="sample"> {{sample}}</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group-vertical gap-1">
+                                <button class="btn btn-warning btn-sm fw-bold px-3">&gt;</button>
+                                <button (click)="moveAllToSelectedRight()"
+                                    class="btn btn-warning btn-sm fw-bold px-3">&gt;&gt;</button>
+                                <button class="btn btn-warning btn-sm fw-bold px-3">&lt;</button>
+                                <button (click)="moveAllToSelectedLeft()"
+                                    class="btn btn-warning btn-sm fw-bold px-3">&lt;&lt;</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select multiple class="form-select border-secondary shadow-none" size="8">
+                                @for (sel of selectedTests(); track sel) {
+                                <option [value]="sel">{{ sel }}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-auto"><button class="btn btn-warning fw-bold px-4 btn-sm shadow-sm">Get
+                                Samples</button></div>
+                    </div>
+
+                    <div class="row justify-content-center align-items-center mb-5">
+                        <div class="col-auto"><span class="text-primary fw-bold small">Label</span></div>
+                        <div class="col-md-4">
+                            <select multiple class="form-select border-secondary shadow-none" size="8">
+                               
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group-vertical gap-1">
+                                <button class="btn btn-warning btn-sm fw-bold px-3">&gt;</button>
+                                <button class="btn btn-warning btn-sm fw-bold px-3">&gt;&gt;</button>
+                                <button class="btn btn-warning btn-sm fw-bold px-3">&lt;</button>
+                                <button class="btn btn-warning btn-sm fw-bold px-3">&lt;&lt;</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select multiple class="form-select border-secondary shadow-none" size="8"></select>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center border-top pt-4">
+                        <div class="col-auto">
+                            <button class="btn btn-outline-dark btn-sm fw-bold px-5">Generate File</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -63,7 +63,7 @@ export class Default {
       { label: 'EZEDD', link: 'ezedd' },
       { label: 'ENVIRON', link: 'environ' },
       { label: 'ENVIRONdatanew', link: 'environdatanew' },
-      { label: 'ENVIRON Data NEW SHAW', link: 'environ-data-shaw' },
+      { label: 'ENVIRON Data NEW SHAW', link: 'EnvironDataNew_SHAW' },
       { label: 'EXCEL EDD NEW VERSION', link: 'ExcelEddRequestV1' },
       { label: 'EXCEL EDD ADVANCE', link: 'excel-edd-advance' },
       { label: 'Equis EDD', link: 'equis-edd' },

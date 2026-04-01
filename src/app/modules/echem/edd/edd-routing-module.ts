@@ -7,6 +7,7 @@ import { ADRDefault } from './adrdefault/adrdefault';
 import { ExcelEddRequestV1 } from './excel-edd-request-v1/excel-edd-request-v1';
 import { ResultExcelEDD } from './result-excel-edd/result-excel-edd';
 import { ResultExcelEDDFeb2011 } from './result-excel-eddfeb2011/result-excel-eddfeb2011';
+import { EnvironDataNewSHAW } from './environ-data-new-shaw/environ-data-new-shaw';
 
 const routes: Routes = [
     { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path: "ExcelEddRequestV1",component: ExcelEddRequestV1},
       {path: "ResultExcelEDD",component: ResultExcelEDD },
       {path:'ResultExcelEDDFeb2011', component: ResultExcelEDDFeb2011},
+      {path: "EnvironDataNew_SHAW", component: EnvironDataNewSHAW}
       
 
 
