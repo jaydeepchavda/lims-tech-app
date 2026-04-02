@@ -1,0 +1,66 @@
+<div class="container-fluid mt-2">
+  <div class="row mb-2">
+    <div class="col-auto">
+      <div class="px-3 py-1 border border-secondary border-opacity-25 fw-bold rounded-pill text-center bg-light text-primary small shadow-sm">
+        Sales :: <span class="text-dark">{{ currentPageTitle }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <nav class="navbar p-1 shadow-sm rounded border border-light" style="background: #003c74;">
+        <div class="d-flex flex-wrap w-100 gap-1 px-2">
+          
+          <a class="nav-link nav-item-prof" routerLink="/lims/echem/Sales" routerLinkActive="active-prof">Sales Home</a>
+          <a class="nav-link nav-item-prof" routerLink="../invoice" routerLinkActive="active-prof">Invoice</a>
+          <a class="nav-link nav-item-prof" routerLink="../ProjectSentOut" routerLinkActive="active-prof">Project Sent Out</a>
+
+          <div class="dropdown">
+            <a class="nav-link nav-item-prof dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Quotes
+            </a>
+            <ul class="dropdown-menu shadow border-0 mt-2 dropdown-menu-dark">
+              <li><a class="dropdown-item py-2 fw-bold text-warning" routerLink="newQuotes">New Quotes</a></li>
+              <li><a class="dropdown-item py-2" routerLink="copyQuotes">Copy Quotes</a></li>
+              <li><a class="dropdown-item py-2" routerLink="editQuotes">Edit Quotes</a></li>
+              <li><hr class="dropdown-divider opacity-25"></li>
+              <li><a class="dropdown-item py-2" routerLink="findQuotes">Find Quotes</a></li>
+            </ul>
+          </div>
+
+          <a class="nav-link nav-item-prof" routerLink="../QuoteSummary" routerLinkActive="active-prof">Sales Summary</a>
+          <a class="nav-link nav-item-prof" routerLink="../EditTestPrice" routerLinkActive="active-prof">Edit Test Price</a>
+          <a class="nav-link nav-item-prof" routerLink="../LoginSummary" routerLinkActive="active-prof">Login Summary</a>
+          <a class="nav-link nav-item-prof" routerLink="../DailySales" routerLinkActive="active-prof">Daily Sales</a>
+          <a class="nav-link nav-item-prof" routerLink="../sales_period" routerLinkActive="active-prof">Sales Activity</a>
+          <a class="nav-link nav-item-prof" routerLink="../findCustomerParam" routerLinkActive="active-prof">Find Parameter</a>
+
+          <div class="dropdown">
+            <a class="nav-link nav-item-prof dropdown-toggle" data-bs-toggle="dropdown">Project Def.</a>
+            <ul class="dropdown-menu shadow border-0 mt-2 dropdown-menu-dark">
+              <li><a class="dropdown-item py-2" routerLink="projectDefinition">New/Edit Request</a></li>
+              <li><a class="dropdown-item py-2" routerLink="Copy Project Definition">Copy Definition</a></li>
+              <li><a class="dropdown-item py-2" routerLink="view-reports">Assigned Quote</a></li>
+            </ul>
+          </div>
+
+          <a class="nav-link nav-item-prof" routerLink="../findCustomerParam" routerLinkActive="active-prof">Cust Search</a>
+          <a class="nav-link nav-item-prof" routerLink="../StateWiseSales" routerLinkActive="active-prof">State Sales</a>
+          <a class="nav-link nav-item-prof" routerLink="../ClientDataBase" routerLinkActive="active-prof">Client DB</a>
+          
+          <a class="nav-link nav-item-prof fw-bold bg-dark" routerLink="CustomerEntry" routerLinkActive="active-prof">Add / Edit Customer</a>
+
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <div class="bg-white border rounded shadow-sm p-4" style="min-height: 80vh;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+/* Base link styling */
+.nav-item-prof {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 14px !important;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap; 
+}
+
+
+.nav-item-prof:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff !important;
+}
+
+/* Active Page State */
+.active-prof {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  border-bottom: 2px solid #ffca2c; /* Gold accent for the 'active' page */
+}
+
+/* Dropdown Menu Professionalism */
+.dropdown-menu-dark {
+  background-color: #002b54;
+  border-top: 3px solid #ffca2c;
+  font-size: 0.85rem;
+  z-index: 2000;
+}
+
+.dropdown-item:hover {
+  background-color: #003c74;
+}
+
+/* Fix for Dropdown overlap */
+.navbar {
+  overflow: visible !important;
+}

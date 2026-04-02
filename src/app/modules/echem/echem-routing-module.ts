@@ -16,10 +16,7 @@ const routes: Routes = [
         path: 'login',
         loadChildren: () => import('./login/login-module').then(m => m.LoginModule)
       },
-      // {
-      //   path: 'echem/AirInvMain',
-      //   loadChildren: () => import('./air-inv-main/air-inv-main-module').then(m => m.AirInvMainModule)
-      // }
+      
       {
         path: 'air-inv-main',
         loadChildren: () => import('./air-inv-main/air-inv-main-module').then(m => m.AirInvMainModule)
@@ -31,6 +28,10 @@ const routes: Routes = [
       {
         path: 'CHEMEDD',
         loadChildren: () => import('./edd/edd-module').then(m => m.EddModule)
+      },
+      {
+        path: 'Sales',
+        loadChildren: () => import('./sales/sales-module').then(m => m.SalesModule)
       }
 
     ]

@@ -1,0 +1,99 @@
+<div class="container-fluid py-0 px-0 shadow-sm border border-light">
+  
+  <div class="row g-0 mb-4 shadow-sm">
+    <div class="col-12 text-center py-1" style="background: #003c74;">
+      <span class="text-white fw-bold small text-uppercase" style="letter-spacing: 1px;">
+        Add/Edit Customer
+      </span>
+    </div>
+  </div>
+
+  <div class="bg-white p-4 mx-3 mb-4 border rounded-1">
+    
+    <div class="mb-4">
+      <span class="text-primary fw-bold small border-bottom border-primary pb-1">
+        Add/Edit Customer :
+      </span>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3 text-secondary">Customer Name :</label>
+          <div class="col-sm-6">
+            <input type="text" [(ngModel)]="customerName" 
+                   class="form-control form-control-sm border-secondary shadow-none rounded-0">
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3 text-secondary">CustomerID :</label>
+          <div class="col-sm-4">
+            <input type="text" [(ngModel)]="customerId" 
+                   class="form-control form-control-sm border-secondary shadow-none rounded-0">
+          </div>
+          <div class="col-sm-auto ps-1">
+            <a href="javascript:void(0)" class="text-primary fw-bold small text-decoration-none" style="font-size: 11px;">
+              (Search)
+            </a>
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3 text-secondary">Project Manager :</label>
+          <div class="col-sm-5">
+            <select [(ngModel)]="selectedPM" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+              <option value="">---SELECT---</option>
+              @for (m of managers(); track m) {
+                <option [value]="m">{{ m }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3 text-secondary">Sales Manager :</label>
+          <div class="col-sm-5">
+            <select [(ngModel)]="selectedSM" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+              <option value="">---SELECT---</option>
+              @for (m of managers(); track m) {
+                <option [value]="m">{{ m }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3 text-secondary">Alternate Sales Manager :</label>
+          <div class="col-sm-5">
+            <select [(ngModel)]="selectedAlt" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+              <option value="">---SELECT---</option>
+              @for (m of managers(); track m) {
+                <option [value]="m">{{ m }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-4 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3 text-secondary">PO Required ? :</label>
+          <div class="col-sm-8">
+            <div class="form-check p-0">
+              <input class="form-check-input border-secondary rounded-0 m-0" type="checkbox" [(ngModel)]="poRequired">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-sm-8 offset-sm-4">
+            <button (click)="onAdd()" class="btn btn-sm btn-warning border-dark rounded-1 px-5 fw-bold shadow-sm text-uppercase" >
+              Add
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
