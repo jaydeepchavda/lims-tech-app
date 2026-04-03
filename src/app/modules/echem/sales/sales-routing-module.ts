@@ -5,23 +5,27 @@ import { CustomerEntry } from './customer-entry/customer-entry';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
+
+  // main route for sales module with child routes
   {
-    path: '',
-    component: Default, // This component contains your Navbar
+    path: '', component: Default,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      // {
-      //   path: 'home',
-      //   component: SalesHomeComponent, // Create a small component for your "Home" content
-      //   data: { title: 'Sales Home' }
-      // },
-      {
-        path: 'CustomerEntry',
-        component: CustomerEntry,
-        data: { title: 'Add / Edit Customer' }
-      }
+      
+      // components for sales module
+      { path: 'CustomerEntry', component: CustomerEntry, data: { title: 'Add / Edit Customer' } },
+      // { path: 'home', component: SalesHomeComponent,   data: { title: 'Sales Home' }},
     ]
   }
+
+
+
+
+
+
+
+  // { path: 'default', component: Default, data: { title: "Home Page" } },
+  // { path: 'CustomerEntry', component: CustomerEntry, data: { title: 'Add / Edit Customer' } }
 ];
 
 @NgModule({
