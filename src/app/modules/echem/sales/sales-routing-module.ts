@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Default } from './default/default';
 import { CustomerEntry } from './customer-entry/customer-entry';
 import { Invoice } from './invoice/invoice';
+import { HomeSales } from './home-sales/home-sales';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -14,6 +15,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
 
       // components for sales module
+      { path: 'HomeSales', component: HomeSales, data: { title: 'Home Sales' } },
+
       { path: 'CustomerEntry', component: CustomerEntry, data: { title: 'Add / Edit Customer' } },
       { path: 'Invoice', component: Invoice, data: { title: 'Invoice' } },
 
