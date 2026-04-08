@@ -2,13 +2,13 @@ import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-invoice',
+  selector: 'app-project-send-out',
   imports: [FormsModule],
-  templateUrl: './invoice.html',
-  styleUrl: './invoice.css',
+  templateUrl: './project-send-out.html',
+  styleUrl: './project-send-out.css',
 })
-export class Invoice {
-  invoiceNo = '';
+export class ProjectSendOut {
+  projectNo = '';
   dateFrom = '';
   dateTo = '';
   selectedPM = 'all';
@@ -18,8 +18,8 @@ export class Invoice {
   executives = signal<string[]>(['Exec 1', 'Exec 2']);
 
   onShow() {
-    console.log('Fetching Invoice Data:', {
-      no: this.invoiceNo,
+    console.log('Fetching Project Send OutData:', {
+      no: this.projectNo,
       from: this.dateFrom,
       to: this.dateTo,
       pm: this.selectedPM,

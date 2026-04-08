@@ -1,0 +1,85 @@
+<div class="container-fluid py-0 px-0 shadow-sm  mt-2">
+  
+  <div class="row g-0 mb-4 shadow-sm border-bottom border-secondary border-opacity-25 ">
+    <div class="col-12 text-start py-1 px-3 bg-opacity-10 bg-warning" style="background-color: #dcd0b9 !important;">
+      <span class="text-dark fw-bold small">
+        Project Send Out
+      </span>
+    </div>
+  </div>
+
+  <div class="bg-white p-4 mx-3 mb-4 border rounded-1">
+    
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-10 col-lg-7">
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3">Enter Project No  :</label>
+          <div class="col-sm-6">
+            <input type="text" [(ngModel)]="projectNo" 
+                   class="form-control form-control-sm border-secondary shadow-none rounded-0">
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3">From :</label>
+          <div class="col-sm-6 d-flex align-items-center">
+            <input type="date" [(ngModel)]="dateFrom" 
+                   class="form-control form-control-sm border-secondary shadow-none rounded-0">
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3">To :</label>
+          <div class="col-sm-6 d-flex align-items-center">
+            <input type="date" [(ngModel)]="dateTo" 
+                   class="form-control form-control-sm border-secondary shadow-none rounded-0">
+          </div>
+        </div>
+
+        <div class="row mb-2 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3">Project Manager :</label>
+          <div class="col-sm-6">
+            <select [(ngModel)]="selectedPM" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+              <option value="all">All Project Manager</option>
+              @for (m of managers(); track m) {
+                <option [value]="m">{{ m }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3 align-items-center">
+          <label class="col-sm-4 text-end fw-bold small pe-3">Sales Executive :</label>
+          <div class="col-sm-6">
+            <select [(ngModel)]="selectedExec" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+              <option value="all">All Sales Executive</option>
+              @for (e of executives(); track e) {
+                <option [value]="e">{{ e }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-sm-6 offset-sm-4 text-center">
+            <button (click)="onShow()" class="btn btn-sm px-4 fw-bold shadow-sm rounded-0 border-dark" 
+                    style="background-color: #dcd0b9; font-size: 11px;">
+              Show
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-auto d-flex flex-column align-items-center gap-1">
+        <a class="text-primary small text-decoration-underline fw-semibold">Todays Projects send out</a>
+        <a class="text-primary small text-decoration-underline fw-semibold">Yesterdays Projects send out</a>
+        <a class="text-primary small text-decoration-underline fw-semibold">Day Before Projects send out</a>
+        <a class="text-primary small text-decoration-underline fw-semibold">Weekly Projects send out</a>
+        <a class="text-primary small text-decoration-underline fw-semibold">Monthly Projects send out</a>
+      </div>
+    </div>
+  </div>
+</div>
