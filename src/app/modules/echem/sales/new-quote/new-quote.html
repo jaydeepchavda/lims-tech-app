@@ -1,0 +1,204 @@
+<div class="container-fluid py-0 px-0 shadow-sm border border-secondary border-opacity-25 mt-2">
+
+    <div class="row g-0 border-bottom border-secondary border-opacity-25 shadow-sm">
+        <div class="col-12 text-start py-1 px-3 bg-secondary bg-opacity-10">
+            <span class="text-dark fw-bold small">Quotation Information</span>
+        </div>
+    </div>
+
+    <div class="bg-white p-3 mx-2 my-2 border rounded-1">
+
+        <div class="row mb-3">
+            <div class="col-md-6 text-center offset-md-3">
+                <span class="px-3 py-1 fw-bold small text-dark border shadow-sm"
+                    style="background-color: #f8c8dc; border-color: #d8a0b8 !important;">
+                    This Quote is for New-Jersey Lab
+                </span>
+            </div>
+        </div>
+
+        <div class="row g-4 px-3">
+
+            <div class="col-md-5">
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-4 text-end fw-bold small text-secondary">Quote ID :</label>
+                    <div class="col-sm-8">
+                        <input type="text" [ngModel]="quoteId()" (ngModelChange)="quoteId.set($event)"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0 font-monospace">
+                    </div>
+                </div>
+
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-4 text-end fw-bold small text-secondary">Status :</label>
+                    <div class="col-sm-8 d-flex align-items-center gap-2">
+                        <select [ngModel]="status()" (ngModelChange)="status.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0 w-50">
+                            @for (opt of statusOptions(); track opt) {
+                                <option [value]="opt">{{ opt }}</option>
+                            }
+                        </select>
+                        <span class="small text-muted">discount :</span>
+                        <input type="number" [ngModel]="discount()" (ngModelChange)="discount.set($event)"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0 text-center"
+                            style="width: 50px;">
+                        <span class="small">%</span>
+                    </div>
+                </div>
+
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-4 text-end fw-bold small text-secondary">Quote Date :</label>
+                    <div class="col-sm-8">
+                        <input type="text" [ngModel]="quoteDate()"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0 bg-light" >
+                    </div>
+                </div>
+
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-4 text-end fw-bold small text-secondary">Priority :</label>
+                    <div class="col-sm-6">
+                        <select [ngModel]="priority()" (ngModelChange)="priority.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                            @for (p of priorityOptions(); track p) {
+                                <option [value]="p">{{ p }}</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <label class="col-sm-4 text-end fw-bold small text-secondary">Comments :</label>
+                    <div class="col-sm-8">
+                        <textarea [ngModel]="comments()" (ngModelChange)="comments.set($event)" rows="3"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-4 text-end fw-bold small text-secondary">Project Address :</label>
+                    <div class="col-sm-8">
+                        <input type="text" [ngModel]="projAddress()" (ngModelChange)="projAddress.set($event)"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7 border-start border-light ps-4">
+                <div class="row mb-2">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">Client ID :</label>
+                    <div class="col-sm-9">
+                        <select [ngModel]="clientId()" (ngModelChange)="clientId.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0 mb-1">
+                            @for (c of clientOptions(); track c.id) {
+                                <option [value]="c.id">{{ c.label }}</option>
+                            }
+                        </select>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="text" value="Wayne"
+                                class="form-control form-control-sm border-secondary shadow-none rounded-0 w-75 bg-light" >
+                            <a href="javascript:void(0)" class="text-primary small text-decoration-underline">More Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">Address :</label>
+                    <div class="col-sm-9">
+                        <textarea rows="2" class="form-control form-control-sm border-secondary shadow-none rounded-0 bg-light"
+                            >108 New South Road, Hicksville, NY, 11801</textarea>
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">Client Contact :</label>
+                    <div class="col-sm-9 d-flex align-items-center gap-2">
+                        <select [ngModel]="clientContact()" (ngModelChange)="clientContact.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0 w-75">
+                            @for (con of contactOptions(); track con) {
+                                <option [value]="con">{{ con }}</option>
+                            }
+                        </select>
+                        <a href="javascript:void(0)" class="text-dark fw-bold small text-decoration-underline">Add New</a>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">Billing ID :</label>
+                    <div class="col-sm-9">
+                        <select [ngModel]="billingId()" (ngModelChange)="billingId.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0 mb-1 w-75">
+                            @for (b of billingOptions(); track b.id) {
+                                <option [value]="b.id">{{ b.id }}</option>
+                            }
+                        </select>
+                        <input type="text" [ngModel]="billingName()"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0 w-75 bg-light">
+                    </div>
+                </div>
+
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">Billing Contact :</label>
+                    <div class="col-sm-9">
+                        <select [ngModel]="billingContact()" (ngModelChange)="billingContact.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0 w-75">
+                            @for (con of contactOptions(); track con) {
+                                <option [value]="con">{{ con }}</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">Project ID :</label>
+                    <div class="col-sm-9 d-flex align-items-center gap-2">
+                        <select [ngModel]="projectId()" (ngModelChange)="projectId.set($event)"
+                            class="form-select form-select-sm border-secondary shadow-none rounded-0 w-75">
+                            @for (p of projectOptions(); track p.id) {
+                                <option [value]="p.id">{{ p.label }}</option>
+                            }
+                        </select>
+                        <a href="javascript:void(0)" class="text-dark fw-bold small text-decoration-underline">Add New</a>
+                    </div>
+                </div>
+
+                <div class="row mb-2 align-items-center">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">PO # :</label>
+                    <div class="col-sm-6">
+                        <input type="text" [ngModel]="poNumber()" (ngModelChange)="poNumber.set($event)"
+                            class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                    </div>
+                </div>
+
+                <div class="row mb-3 align-items-center">
+                    <label class="col-sm-3 text-end fw-bold small text-secondary">IS QPC Required :</label>
+                    <div class="col-sm-9 d-flex gap-3">
+                        <div class="form-check m-0">
+                            <input class="form-check-input border-secondary" type="radio" name="qpc" id="qpcNo" checked>
+                            <label class="form-check-label small fw-bold" for="qpcNo">NO</label>
+                        </div>
+                        <div class="form-check m-0">
+                            <input class="form-check-input border-secondary" type="radio" name="qpc" id="qpcYes">
+                            <label class="form-check-label small fw-bold" for="qpcYes">YES</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4 pt-3 border-top border-light">
+            <div class="col-12 text-center">
+                <button (click)="onAddQuote()" class="btn btn-sm px-4 fw-bold shadow-sm rounded-0 border-dark"
+                    style="background-color: #dcd0b9; font-size: 11px;">
+                    Add New Quote
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3 mb-5">
+    <div class="col-12 text-center">
+        <button (click)="onCancel()" class="btn btn-sm btn-danger px-4 fw-bold rounded-1 border-dark shadow">
+            Cancel Quote
+        </button>
+    </div>
+</div>
