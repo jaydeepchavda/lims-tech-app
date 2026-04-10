@@ -6,6 +6,7 @@ import { Invoice } from './invoice/invoice';
 import { HomeSales } from './home-sales/home-sales';
 import { ProjectSendOut } from './project-send-out/project-send-out';
 import { NewQuote } from './new-quote/new-quote';
+import { UpdateQuotationPriorityDetails } from './update-quotation-priority-details/update-quotation-priority-details';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -23,6 +24,8 @@ const routes: Routes = [
       { path: 'Invoice', component: Invoice, data: { title: 'Invoice' } },
       { path: 'ProjectSendOut', component: ProjectSendOut, data: { title: 'ProjectSendOut' } },
       { path: 'NewQuote', component: NewQuote, data: { title: 'NewQuote' } },
+      { path: 'UpdateQuotationPriorityDetails', component: UpdateQuotationPriorityDetails, data: { title: 'UpdateQuotationPriorityDetails' } },
+
 
 
 

@@ -1,0 +1,214 @@
+<div class="container-fluid py-0 px-0 shadow-sm border border-secondary border-opacity-25 mt-2">
+  
+  <div class="row g-0 border-bottom border-secondary border-opacity-25 shadow-sm">
+    <div class="col-12 text-start py-1 px-3 bg-secondary bg-opacity-10">
+      <span class="text-dark fw-bold small">Enter New Priority Details</span>
+    </div>
+  </div>
+
+  <div class="bg-white p-3 mx-2 my-2 border rounded-1">
+    
+    <form [formGroup]="priorityForm" (ngSubmit)="onSubmit()">
+      
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-10">
+          
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Quotation ID :</label>
+            <div class="col-sm-3">
+              <input type="text" formControlName="quotationId" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Package Type :</label>
+            <div class="col-sm-4">
+              <select formControlName="packageType" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                <option value="">Select</option>
+                @for (type of dropdownData().packageTypes; track type) { <option [value]="type">{{type}}</option> }
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Edd Format 1 :</label>
+            <div class="col-sm-3">
+              <select formControlName="eddFormat1" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                <option value="">Select</option>
+                @for (fmt of dropdownData().eddFormats; track fmt) { <option [value]="fmt">{{fmt}}</option> }
+              </select>
+            </div>
+            <label class="col-sm-2 text-end fw-bold small text-secondary">Edd Format 2 :</label>
+            <div class="col-sm-3">
+              <select formControlName="eddFormat2" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                <option value="">Select</option>
+                @for (fmt of dropdownData().eddFormats; track fmt) { <option [value]="fmt">{{fmt}}</option> }
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Edd Format 3 :</label>
+            <div class="col-sm-3">
+              <select formControlName="eddFormat3" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                <option value="">Select</option>
+                @for (fmt of dropdownData().eddFormats; track fmt) { <option [value]="fmt">{{fmt}}</option> }
+              </select>
+            </div>
+            <label class="col-sm-2 text-end fw-bold small text-secondary">Edd Format 4 :</label>
+            <div class="col-sm-3">
+              <select formControlName="eddFormat4" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                <option value="">Select</option>
+                @for (fmt of dropdownData().eddFormats; track fmt) { <option [value]="fmt">{{fmt}}</option> }
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Terms :</label>
+            <div class="col-sm-7">
+              <select formControlName="terms" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                <option value="">Select</option>
+                @for (term of dropdownData().terms; track term) { <option [value]="term">{{term}}</option> }
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Liquidated Damages :</label>
+            <div class="col-sm-8 d-flex gap-3">
+              <div class="form-check m-0">
+                <input class="form-check-input border-secondary" type="radio" formControlName="liquidatedDamages" id="ldYes" value="Yes">
+                <label class="form-check-label small fw-bold" for="ldYes">Yes</label>
+              </div>
+              <div class="form-check m-0">
+                <input class="form-check-input border-secondary" type="radio" formControlName="liquidatedDamages" id="ldNo" value="No">
+                <label class="form-check-label small fw-bold" for="ldNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-1 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Sample Retention Days :</label>
+            <div class="col-sm-2">
+              <input type="number" formControlName="retentionDays" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-3 small text-muted fst-italic ps-0">(Default is 30)</div>
+          </div>
+
+          <div class="row mb-1 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Years To Keep Report :</label>
+            <div class="col-sm-2">
+              <input type="number" formControlName="yearsKeepReport" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-3 small text-muted fst-italic ps-0">(Default is 5)</div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Retention Percentage :</label>
+            <div class="col-sm-2">
+              <input type="number" formControlName="retentionPercentage" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-3 small text-muted fst-italic ps-0">(Default is 0)</div>
+          </div>
+
+          <div class="row mb-2 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Start Date :</label>
+            <div class="col-sm-2">
+              <input type="text" formControlName="startDate" type="date" placeholder="MM/DD/YY" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <label class="col-sm-2 text-end fw-bold small text-secondary">End Date :</label>
+            <div class="col-sm-2">
+              <input type="text" formControlName="endDate" type="date" placeholder="MM/DD/YY" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+          </div>
+
+          <div class="row mb-1 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Project Duration :</label>
+            <div class="col-sm-2">
+              <input type="text" formControlName="projectDuration" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+          </div>
+
+          <div class="row mb-1 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">General Hard Copy TAT(Bus.Day) :</label>
+            <div class="col-sm-2">
+              <input type="number" formControlName="hardCopyTat" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-3 small text-muted fst-italic ps-0">(Default is 10)</div>
+          </div>
+
+          <div class="row mb-1 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Special MDL Requirement :</label>
+            <div class="col-sm-2">
+              <input type="text" formControlName="specialMdl" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-3 small text-muted fst-italic ps-0">(Default is "NO")</div>
+          </div>
+
+          <div class="row mb-4 align-items-center">
+            <label class="col-sm-4 text-end fw-bold small text-secondary">Are Site Specific MS/MSD Required? :</label>
+            <div class="col-sm-2">
+              <input type="text" formControlName="msmsdRequired" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-2 text-end fw-bold small text-secondary">Are they billable?</div>
+            <div class="col-sm-2 px-1">
+              <input type="text" formControlName="msmsdBillable" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+            <div class="col-sm-2 small text-muted fst-italic ps-0" style="font-size: 10px;">(Default is "NO")</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mb-4 border-top pt-3">
+        <div class="col-12 text-center mb-2">
+          <span class="fw-bold small">Priority (% Surcharge)</span>
+        </div>
+        <div class="col-12 d-flex flex-wrap justify-content-center gap-3">
+          @for (p of priorities(); track p.label) {
+            <div class="d-flex align-items-center gap-2">
+              <label class="fw-bold small">{{p.label}}</label>
+              <input type="number" [formControlName]="p.controlName" class="form-control form-control-sm border-secondary shadow-none rounded-0" style="width: 60px;">
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div class="row mb-2">
+            <label class="col-sm-3 text-end fw-bold small text-secondary">PM Comments :</label>
+            <div class="col-sm-9">
+              <textarea formControlName="pmComments" rows="2" class="form-control form-control-sm border-secondary shadow-none rounded-0"></textarea>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <label class="col-sm-3 text-end fw-bold small text-secondary">QC/Reporting Comments :</label>
+            <div class="col-sm-9">
+              <textarea formControlName="qcComments" rows="2" class="form-control form-control-sm border-secondary shadow-none rounded-0"></textarea>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <label class="col-sm-3 text-end fw-bold small text-secondary">Sales Comments :</label>
+            <div class="col-sm-9">
+              <textarea formControlName="salesComments" rows="2" class="form-control form-control-sm border-secondary shadow-none rounded-0"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row border-top pt-3">
+        <div class="col-12 text-center d-flex justify-content-center gap-2">
+          <button type="submit" class="btn btn-sm px-3 fw-bold border-dark rounded-0" style="background-color: #dcd0b9; font-size: 11px;">
+            Submit
+          </button>
+          <button type="button" class="btn btn-sm px-3 fw-bold border-dark rounded-0" style="background-color: #dcd0b9; font-size: 11px;">
+            Go Back
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
