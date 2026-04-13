@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './login-summary-details.css',
 })
 export class LoginSummaryDetails {
-private fb = inject(FormBuilder);
+  private fb = inject(FormBuilder);
 
   // Angular 21 Signals for dynamic link list
   summaryLinks = signal([
@@ -32,6 +32,7 @@ private fb = inject(FormBuilder);
   }
 
   onShow() {
+    
     // Capture and display final JSON object
     const payload = {
       action: 'FILTER_SUMMARY',
