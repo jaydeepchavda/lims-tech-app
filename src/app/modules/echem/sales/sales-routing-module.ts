@@ -7,6 +7,8 @@ import { HomeSales } from './home-sales/home-sales';
 import { ProjectSendOut } from './project-send-out/project-send-out';
 import { NewQuote } from './new-quote/new-quote';
 import { UpdateQuotationPriorityDetails } from './update-quotation-priority-details/update-quotation-priority-details';
+import { UploadQuoteDocuments } from './upload-quote-documents/upload-quote-documents';
+import { LoginSummaryDetails } from './login-summary-details/login-summary-details';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -22,9 +24,13 @@ const routes: Routes = [
 
       { path: 'CustomerEntry', component: CustomerEntry, data: { title: 'Add / Edit Customer' } },
       { path: 'Invoice', component: Invoice, data: { title: 'Invoice' } },
-      { path: 'ProjectSendOut', component: ProjectSendOut, data: { title: 'ProjectSendOut' } },
-      { path: 'NewQuote', component: NewQuote, data: { title: 'NewQuote' } },
-      { path: 'UpdateQuotationPriorityDetails', component: UpdateQuotationPriorityDetails, data: { title: 'UpdateQuotationPriorityDetails' } },
+      { path: 'ProjectSendOut', component: ProjectSendOut, data: { title: 'Project Send Out' } },
+      { path: 'NewQuote', component: NewQuote, data: { title: 'New Quote' } },
+      { path: 'UpdateQuotationPriorityDetails', component: UpdateQuotationPriorityDetails, data: { title: 'Update Quotation Priority Details' } },
+      { path: 'UploadQuoteDocument', component: UploadQuoteDocuments, data: { title: 'Upload Quote Documents' } },
+      { path: 'LoginSummaryDetails', component:LoginSummaryDetails , data: { title: 'Login Summary Details' } },
+
+
 
 
 

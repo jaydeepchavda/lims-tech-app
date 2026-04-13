@@ -1,0 +1,103 @@
+<div class="container-fluid py-0 px-0 shadow-sm border border-secondary border-opacity-25 mt-2">
+  
+  <div class="row g-0 border-bottom border-secondary border-opacity-25 shadow-sm">
+    <div class="col-12 text-start py-1 px-3 bg-secondary bg-opacity-10" style="background: #003c74 !important;">
+      <span class="text-white fw-bold small">Upload Quotation Documents</span>
+    </div>
+  </div>
+
+  <div class="bg-white p-3 mx-2 my-2 border rounded-1">
+    
+    <div class="mb-3">
+        <a href="javascript:void(0)" class="text-dark fw-bold small text-decoration-underline">Access MSA/BOA</a>
+    </div>
+
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      
+      <div class="row justify-content-center">
+        <div class="col-md-11 border border-secondary p-4">
+          
+          <div class="row mb-4">
+            <div class="col-md-5">
+              <div class="row mb-2 align-items-center">
+                <label class="col-sm-5 text-end fw-bold small text-secondary">Client ID :</label>
+                <div class="col-sm-7">
+                  <select formControlName="clientId" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                    <option value="">--Select--</option>
+                    @for (id of dropdownData().clientIds; track id) { <option [value]="id">{{id}}</option> }
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-2 align-items-center">
+                <label class="col-sm-5 text-end fw-bold small text-secondary">Project ID :</label>
+                <div class="col-sm-7">
+                  <select formControlName="projectId" class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                    <option value="">--Select--</option>
+                    @for (id of dropdownData().projectIds; track id) { <option [value]="id">{{id}}</option> }
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 offset-md-1">
+              <div class="row mb-2 align-items-center">
+                <label class="col-sm-1 fw-bold text-danger small">OR</label>
+                <label class="col-sm-4 text-end fw-bold small text-secondary">Quotation ID :</label>
+                <div class="col-sm-5">
+                  <input type="text" formControlName="quotationId" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                </div>
+              </div>
+              <div class="row mb-2 align-items-center">
+                <label class="col-sm-1 fw-bold text-danger small">OR</label>
+                <label class="col-sm-4 text-end fw-bold small text-secondary">Order ID :</label>
+                <div class="col-sm-5">
+                  <input type="text" formControlName="orderId" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5 offset-sm-5">
+                    <button type="button" class="btn btn-sm border-dark rounded-0 px-2 py-0 fw-bold" style="background: #dcd0b9; font-size: 11px;">History</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-10">
+                @for (doc of uploadFields(); track doc.controlName) {
+                    <div class="row mb-1 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small text-secondary">{{doc.label}} :</label>
+                        <div class="col-sm-4">
+                            <input type="file" (change)="onFileChange($event, doc.controlName)" class="form-control form-control-sm border-secondary shadow-none rounded-0 small">
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-check d-flex align-items-center gap-1">
+                                <input class="form-check-input border-secondary rounded-0" type="checkbox" [formControlName]="doc.checkControl" [id]="doc.checkControl">
+                                <label class="form-check-label text-secondary small" [for]="doc.checkControl" style="font-size: 11px;">Not Required</label>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+          </div>
+
+          <div class="row mb-4 align-items-center">
+            <label class="col-sm-3 text-end fw-bold small text-secondary">Expiration Date of MSA/BOA:</label>
+            <div class="col-sm-3 ps-4">
+              <input type="date" formControlName="expirationDate" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-sm px-4 fw-bold border-dark rounded-0 shadow-sm" style="background-color: #dcd0b9; font-size: 11px;">
+                    Submit
+                </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
