@@ -10,6 +10,7 @@ import { UpdateQuotationPriorityDetails } from './update-quotation-priority-deta
 import { UploadQuoteDocuments } from './upload-quote-documents/upload-quote-documents';
 import { LoginSummaryDetails } from './login-summary-details/login-summary-details';
 import { SalesPeriod } from './sales-period/sales-period';
+import { ProjectDefinition } from './project-definition/project-definition';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -31,6 +32,8 @@ const routes: Routes = [
       { path: 'UploadQuoteDocument', component: UploadQuoteDocuments, data: { title: 'Upload Quote Documents' } },
       { path: 'LoginSummaryDetails', component:LoginSummaryDetails , data: { title: 'Login Summary Details' } },
       { path: 'sales_period', component:SalesPeriod , data: { title: 'Sales Period' } },
+      { path: 'ProjectDefinition', component:ProjectDefinition, data: { title: 'Project Definition' } },
+
 
 
 

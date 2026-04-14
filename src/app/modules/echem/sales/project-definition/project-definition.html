@@ -1,0 +1,394 @@
+<div class="container-fluid py-0 px-0 shadow-sm border border-secondary border-opacity-25 mt-2 bg-white">
+
+    <div class="row g-0 border-bottom border-secondary border-opacity-25 shadow-sm">
+        <div class="col-12 text-start py-1 px-3 bg-secondary bg-opacity-10">
+            <span class="text-dark fw-bold small">New Project Definition</span>
+        </div>
+    </div>
+
+    <div class="p-3">
+        <div class="text-center mb-2">
+            <span class="text-danger fw-bold small">* Required Fields</span>
+        </div>
+
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+
+            <div class="border border-light-subtle rounded-1 mb-3">
+                <div class="bg-light px-2 py-1 border-bottom">
+                    <span class="text-primary fw-bold small" style="font-size: 11px;">Client Information</span>
+                </div>
+                <div class="p-3">
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary">Project Definition Id :</label>
+                        <div class="col-sm-3">
+                            <select formControlName="projectDefId"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="PD2604027">PD2604027</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary"><span
+                                class="text-danger">*</span>Client Code :</label>
+                        <div class="col-sm-5">
+                            <select formControlName="clientCode"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="PSEG03">PSEG03--PSEG</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary">Client Name :</label>
+                        <div class="col-sm-4">
+                            <input type="text" formControlName="clientName"
+                                class="form-control form-control-sm border-secondary shadow-none rounded-0 bg-light">
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary"><span
+                                class="text-danger">*</span>Project Name :</label>
+                        <div class="col-sm-5">
+                            <select formControlName="projectName"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="PSEG Central">PSEG Central UG OP Roman</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary"><span
+                                class="text-danger">*</span>Customer Contacts :</label>
+                        <div class="col-sm-3 d-flex align-items-center gap-2">
+                            <select formControlName="customerContact"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="Andrew">Andrew Goddard</option>
+                            </select>
+                            <a href="javascript:void(0)" class="text-primary small fw-bold text-decoration-none"
+                                style="font-size: 11px;">New</a>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <span class="text-danger fw-bold small border-bottom border-danger pe-2">Quote-Q2604027
+                                Assigned</span>
+                            <button type="button"
+                                class="btn btn-sm border-dark rounded-0 px-2 py-0 fw-bold bg-secondary bg-opacity-10 ms-2"
+                                style="font-size: 11px;">Convert To Quote</button>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary">Phone :</label>
+                        <div class="col-sm-3">
+                            <input type="text" formControlName="phone"
+                                class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                        </div>
+                        <label class="col-sm-2 text-end fw-bold small text-secondary">Email :</label>
+                        <div class="col-sm-4">
+                            <span class="small text-muted">andrew.goddard@pseg.com</span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-1 align-items-center">
+                        <label class="col-sm-3 text-end fw-bold small text-secondary">Comment :</label>
+                        <div class="col-sm-6">
+                            <textarea formControlName="comment" rows="2"
+                                class="form-control form-control-sm border-secondary shadow-none rounded-0"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <span class="text-danger fw-bold small">Your ProjectDefId is PD2604027</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-light-subtle rounded-1 mb-3">
+                <div class="bg-light px-2 py-1 border-bottom">
+                    <span class="text-primary fw-bold small" style="font-size: 11px;">Edd / Data Information</span>
+                </div>
+                <div class="p-3">
+                    <div class="row">
+                        <div class="col-md-6 border-end border-light">
+                            @for(num of [1,2,3,4,5,6,7,8,9,10,11,12]; track num) {
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">
+                                    @if(num === 1) { <span class="text-danger">*</span> } Edd Format{{num}} :
+                                </label>
+                                <div class="col-sm-6">
+                                    <select [formControlName]="'eddFormat' + num"
+                                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                        <option value="">--Select--</option>
+                                        <option value="EXCEL">EXCEL NJCLEANUP</option>
+                                    </select>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                        <div class="col-md-6">
+                            @for(num of [1,2,3,4,5,6,7,8,9,10,11,12]; track num) {
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">
+                                    @if(num === 1) { <span class="text-danger">*</span> } Criteria{{num}} :
+                                </label>
+                                <div class="col-sm-6">
+                                    <select [formControlName]="'criteria' + num"
+                                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                        <option value="NONE">NONE</option>
+                                    </select>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">Hardcopy needed ?
+                                    :</label>
+                                <div class="col-sm-7 d-flex gap-2">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="hardcopyNeeded" value="Yes">
+                                        <label class="small fw-bold text-muted">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="hardcopyNeeded" value="No">
+                                        <label class="small fw-bold text-muted">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">CD Required ? :</label>
+                                <div class="col-sm-7 d-flex gap-2">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="cdRequired" value="Yes">
+                                        <label class="small fw-bold text-muted">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="cdRequired" value="No">
+                                        <label class="small fw-bold text-muted">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary"><span
+                                        class="text-danger">*</span>Data Deliverables :</label>
+                                <div class="col-sm-6">
+                                    <select formControlName="deliverables"
+                                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                        <option value="Results Only">Results Only</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">How Many Copies ?
+                                    :</label>
+                                <div class="col-sm-3">
+                                    <select formControlName="copies"
+                                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">How Many CDs ? :</label>
+                                <div class="col-sm-3">
+                                    <select formControlName="cds"
+                                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                        <option value="0">0</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-1 align-items-center">
+                                <label class="col-sm-5 text-end fw-bold small text-secondary">Hardcopy Turnaround Time
+                                    :</label>
+                                <div class="col-sm-4">
+                                    <select formControlName="tat"
+                                        class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                        <option value="10">10 Bus. Days</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-light-subtle rounded-1 mb-4 shadow-sm">
+                <div class="bg-light px-2 py-1 border-bottom">
+                    <span class="text-primary fw-bold small" style="font-size: 11px;">Other Information</span>
+                </div>
+                <div class="p-3">
+                    <div class="row">
+                        <div class="col-md-6 border-end border-light">
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">MBE Required ? :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="mbeRequired" id="mbeYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="mbeYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="mbeRequired" id="mbeNo" value="No">
+                                        <label class="small fw-bold text-muted" for="mbeNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">Certifications Needed ?
+                                    :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="certsNeeded" id="certsYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="certsYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="certsNeeded" id="certsNo" value="No">
+                                        <label class="small fw-bold text-muted" for="certsNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">Site Specific MS/MSD
+                                    required ? :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="msmsdRequired" id="msYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="msYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="msmsdRequired" id="msNo" value="No">
+                                        <label class="small fw-bold text-muted" for="msNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">Bottle Delivery Required?
+                                    :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="bottleDelivery" id="botYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="botYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="bottleDelivery" id="botNo" value="No">
+                                        <label class="small fw-bold text-muted" for="botNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">Pickup Required Location ?
+                                    :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="pickupRequired" id="pickYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="pickYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="pickupRequired" id="pickNo" value="No">
+                                        <label class="small fw-bold text-muted" for="pickNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">SBE Required ? :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="sbeRequired" id="sbeYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="sbeYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="sbeRequired" id="sbeNo" value="No">
+                                        <label class="small fw-bold text-muted" for="sbeNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">Agencies :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" formControlName="agencies"
+                                        class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">Are they billable ?
+                                    :</label>
+                                <div class="col-sm-6 d-flex gap-3">
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="billable" id="billYes" value="Yes">
+                                        <label class="small fw-bold text-muted" for="billYes">Yes</label>
+                                    </div>
+                                    <div class="form-check m-0 d-flex align-items-center gap-1">
+                                        <input class="form-check-input border-secondary" type="radio"
+                                            formControlName="billable" id="billNo" value="No">
+                                        <label class="small fw-bold text-muted" for="billNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">No. of Bottle Deliveries
+                                    Required:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" formControlName="bottleCount"
+                                        class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                                </div>
+                            </div>
+
+                            <div class="row mb-2 align-items-center">
+                                <label class="col-sm-6 text-end fw-bold small text-secondary">No. of Pickups Required
+                                    :</label>
+                                <div class="col-sm-2">
+                                    <input type="text" formControlName="pickupCount"
+                                        class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-sm btn-primary px-5 fw-bold shadow-sm rounded-0">Save Project
+                        Definition</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
