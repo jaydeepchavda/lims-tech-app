@@ -1,0 +1,83 @@
+<div class="container-fluid py-0 px-0 shadow-sm border border-secondary border-opacity-25 mt-3">
+  
+  <div class="row g-0 border-bottom border-secondary border-opacity-25 shadow-sm">
+    <div class="col-12 text-start py-1 px-3" style="background-color: #dcd0b9 !important;">
+      <span class="text-dark fw-bold small">Sales Period</span>
+    </div>
+  </div>
+
+  <div class="bg-white p-4 mx-2 my-2 border rounded-1">
+    
+    <form [formGroup]="salesForm" (ngSubmit)="onGo()">
+      
+      <div class="row justify-content-center mb-3">
+        <div class="col-md-10 d-flex align-items-center justify-content-center gap-3">
+          <label class="fw-bold small text-dark">Select Account Executive :</label>
+          <select formControlName="accountExecutive" class="form-select form-select-sm border-secondary shadow-none rounded-0 w-25">
+            @for (exec of executives(); track exec) {
+              <option [value]="exec">{{ exec }}</option>
+            }
+          </select>
+          <a href="javascript:void(0)" class="text-dark small fw-bold text-decoration-underline ms-4">Update Start/End Dates Of Quote</a>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-4">
+        <div class="col-auto d-flex flex-wrap gap-3">
+          @for (option of checkboxOptions(); track option.control) {
+            <div class="form-check d-flex align-items-center gap-1">
+              <input class="form-check-input border-secondary rounded-0 m-0" type="checkbox" [formControlName]="option.control" [id]="option.control">
+              <label class="form-check-label small fw-bold text-dark" [for]="option.control" style="font-size: 11px;">
+                {{ option.label }}
+              </label>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="row justify-content-center align-items-center mb-3 g-2">
+        <div class="col-auto">
+          <label class="fw-bold small">Start Date :</label>
+        </div>
+        <div class="col-auto">
+          <input type="date" formControlName="startDate" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+        </div>
+        <div class="col-auto ms-3">
+          <label class="fw-bold small">End Date :</label>
+        </div>
+        <div class="col-auto">
+          <input type="date" formControlName="endDate" class="form-control form-control-sm border-secondary shadow-none rounded-0">
+        </div>
+        <div class="col-auto ms-2">
+          <button type="submit" class="btn btn-sm px-2 py-0 fw-bold border-dark rounded-0 shadow-sm" style="background-color: #dcd0b9; font-size: 11px;">
+            Go
+          </button>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-4 g-2">
+        <div class="col-auto">
+          <button type="button" class="btn btn-sm px-2 py-0 fw-bold border-dark rounded-0 shadow-sm" style="background-color: #dcd0b9; font-size: 11px;">
+            Insert Sales Activity
+          </button>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-sm px-2 py-0 fw-bold border-dark rounded-0 shadow-sm" style="background-color: #dcd0b9; font-size: 11px;">
+            Total Number of Pending Quote is 5
+          </button>
+        </div>
+      </div>
+
+      <div class="row justify-content-center pt-2">
+        <div class="col-auto d-flex flex-column align-items-center gap-1">
+          <a href="javascript:void(0)" class="text-primary small text-decoration-underline fw-bold">Today's Summary</a>
+          <a href="javascript:void(0)" class="text-primary small text-decoration-underline fw-bold">Yesterday's Summary</a>
+          <a href="javascript:void(0)" class="text-primary small text-decoration-underline fw-bold">Day Before Summary</a>
+          <a href="javascript:void(0)" class="text-primary small text-decoration-underline fw-bold">Weekly Summary</a>
+          <a href="javascript:void(0)" class="text-primary small text-decoration-underline fw-bold">Monthly Summary</a>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
