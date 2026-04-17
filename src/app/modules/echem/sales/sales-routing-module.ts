@@ -11,6 +11,7 @@ import { UploadQuoteDocuments } from './upload-quote-documents/upload-quote-docu
 import { LoginSummaryDetails } from './login-summary-details/login-summary-details';
 import { SalesPeriod } from './sales-period/sales-period';
 import { ProjectDefinition } from './project-definition/project-definition';
+import { CopyProjectDefinition } from './copy-project-definition/copy-project-definition';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -33,6 +34,8 @@ const routes: Routes = [
       { path: 'LoginSummaryDetails', component:LoginSummaryDetails , data: { title: 'Login Summary Details' } },
       { path: 'sales_period', component:SalesPeriod , data: { title: 'Sales Period' } },
       { path: 'ProjectDefinition', component:ProjectDefinition, data: { title: 'Project Definition' } },
+      { path: 'CopyProjectDefinition', component:CopyProjectDefinition, data: { title: 'Copy Project Definition' } },
+
 
 
 
