@@ -1,1 +1,132 @@
-<p>copy-project-definition works!</p>
+<div class="container-fluid py-0 px-0 shadow-sm border border-secondary border-opacity-25 mt-3">
+
+    <div class="bg-white p-4 mx-2 my-2 border rounded-1">
+
+        <form [formGroup]="copyForm" (ngSubmit)="onCopy()">
+
+            <div class="row justify-content-center">
+                <div class="col-md-11 col-lg-9">
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small text-secondary">Base Project Definition Id
+                            :</label>
+
+                        <div class="col-sm-8 d-flex align-items-center gap-3">
+                            <div >
+                                <select formControlName="baseProjectId"
+                                    class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                    <option value="PD2604044">PD2604044</option>
+                                    <option value="PD2604044">PD2604044</option>
+
+                                </select>
+                            </div>
+
+                            <a href="javascript:void(0)"
+                                class="text-success small fw-bold text-decoration-none hover-underline">
+                                Click Here To See Project Definition Report
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">Old Client Code :</label>
+                        <div class="col-sm-8">
+                            <span class="small fw-bold">LANG01-Langan Engineering and Environmental Services, Inc</span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">Old Project Name :</label>
+                        <div class="col-sm-8">
+                            <span class="small fw-bold">1904 Bergen Street</span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">New Client Code :</label>
+                        <div class="col-sm-6">
+                            <select formControlName="newClientCode"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="LANG01">LANG01--Langan Engineering and Environmental Services, Inc
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">New Client Name :</label>
+                        <div class="col-sm-5">
+                            <input type="text" formControlName="newClientName"
+                                class="form-control form-control-sm border-secondary shadow-none rounded-0 bg-light">
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">New Project Name :</label>
+                        <div class="col-sm-5 d-flex align-items-center gap-2">
+                            <select formControlName="newProjectName"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="">--Select--</option>
+                                @for (p of projects(); track p) { <option [value]="p">{{p}}</option> }
+                            </select>
+                            <a href="javascript:void(0)"
+                                class="text-primary small fw-bold text-decoration-underline">New</a>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">Customer Contacts :</label>
+                        <div class="col-sm-4 d-flex align-items-center gap-2">
+                            <select formControlName="customerContact"
+                                class="form-select form-select-sm border-secondary shadow-none rounded-0">
+                                <option value="Jack Palmerton">Jack Palmerton</option>
+                            </select>
+                            <a href="javascript:void(0)"
+                                class="text-primary small fw-bold text-decoration-underline">New</a>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small">Phone :</label>
+                        <div class="col-sm-3">
+                            <input type="text" formControlName="phone"
+                                class="form-control form-control-sm border-secondary shadow-none rounded-0">
+                        </div>
+                        <label class="col-sm-1 text-end fw-bold small">Email :</label>
+                        <div class="col-sm-4">
+                            <span class="small text-muted fst-italic">jpalmerton&#64;langan.com</span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small pe-3">Copy Test Price :</label>
+                        <div class="col-sm-8">
+                            <input class="form-check-input border-secondary rounded-0 shadow-none" type="checkbox"
+                                formControlName="copyTestPrice">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 align-items-center">
+                        <label class="col-sm-4 text-end fw-bold small pe-3">Copy Existing Files :</label>
+                        <div class="col-sm-5">
+                            <div class="border border-secondary text-center py-1 bg-white">
+                                <span class="text-danger fw-bold small">No Records Found.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-sm px-3 fw-bold border-dark rounded-0 shadow-sm"
+                                style="background-color: #dcd0b9; font-size: 11px;">
+                                Copy Project Definition
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
