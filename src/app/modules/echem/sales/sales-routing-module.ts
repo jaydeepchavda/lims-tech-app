@@ -12,6 +12,7 @@ import { LoginSummaryDetails } from './login-summary-details/login-summary-detai
 import { SalesPeriod } from './sales-period/sales-period';
 import { ProjectDefinition } from './project-definition/project-definition';
 import { CopyProjectDefinition } from './copy-project-definition/copy-project-definition';
+import { Label } from './label/label';
 
 const routes: Routes = [
   { path: '', redirectTo: 'default', pathMatch: 'full' },
@@ -35,6 +36,8 @@ const routes: Routes = [
       { path: 'sales_period', component:SalesPeriod , data: { title: 'Sales Period' } },
       { path: 'ProjectDefinition', component:ProjectDefinition, data: { title: 'Project Definition' } },
       { path: 'CopyProjectDefinition', component:CopyProjectDefinition, data: { title: 'Copy Project Definition' } },
+      { path: 'label', component:Label, data: { title: 'label demo' } },
+
 
 
 

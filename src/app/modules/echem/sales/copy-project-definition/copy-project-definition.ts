@@ -34,6 +34,7 @@ private fb = inject(FormBuilder);
       action: 'COPY_PROJECT_DEFINITION',
       originalSource: {
         id: 'PD2604044',
+        
         client: 'LANG01',
         name: '1904 Bergen Street'
       },
